@@ -32,4 +32,4 @@ Este proyecto fue gestionado siguiendo un flujo de trabajo con Git.
 - Repositorio inicializado con `git init`.
 - Se realizaron commits para agregar los archivos html a medida que eran terminados localmente.
 - El código está publicado en GitHub. https://github.com/jp21101326/TD_JS0081.git
-- Este proyecto Evaluación de Módulo se encuentra especificamente en la carpeta: 
+- Este proyecto Evaluación de Módulo se encuentra especificamente en la carpeta: Modulo_2/Evaluación del módulo
