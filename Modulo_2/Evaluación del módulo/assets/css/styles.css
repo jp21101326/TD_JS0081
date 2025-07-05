@@ -106,7 +106,7 @@
         }
 
         .quiz-option.correct {
-            background-color: #6bff90;
+            background-color: #539d66;
             border-color: var(--accent-color);
         }
 
