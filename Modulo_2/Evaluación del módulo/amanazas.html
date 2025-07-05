@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CiberSeguridad</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css"/>
+</head>
+
+<body>
+
+		<!-- Navegación -->
+		 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div class="container">
+				<a class="navbar-brand fw-bold" href="index.html">CiberSeguridad
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="amanazas.html">Amenazas</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="consejos.html">Consejos</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		 </nav>
+
+         <!-- Página de Amenazas Comunes -->
+         <section id="amenazas" class="intro-section py-5">
+            <div class="container">
+                <div class="row mb-3 bg-danger text-white p-2 rounded">
+                    <div class="col-12 text-left">
+                        <br>
+                        <h6 class="display-6 fw-bold mb-3">Amenazas Cibernéticas</h6>
+                     </div>
+                </div>
+
+                <!-- Carrusel de Casos Reales -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h3 class="mb-4">Información sobre ataques cibernéticos.</h3>
+                        <div id="casosCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#casosCarousel" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#casosCarousel" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#casosCarousel" data-bs-slide-to="2"></button>
+                            </div>
+                            <div class="carousel-inner rounded">
+                                <div class="carousel-item active">
+                                    <div class="bg-danger d-flex align-items-center justify-content-center">
+                                         <img src="./assets/img/infostealers.JPG" alt="Infostealers" class="img-fluid">
+                                    </div>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Infostealers (o stealers de información)</h5>
+                                        <p>Mayo 2025: Fraude con infostealers: cómo no ser parte del problema.</p>
+                                        <p><a href="https://www.csirt.cl/infostealers" target="_blank" class="btn btn-light">Leer más</a></p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="bg-warning d-flex align-items-center justify-content-center">
+                                        <img src="./assets/img/RansomwareMeow.JPG" alt="Ransomware Meow" class="img-fluid">
+                                     </div>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Ransomware Meow</h5>
+                                        <p>Noviembre 2024: Reaparece el ransomware Meow</p>
+                                        <p><a href="https://csirt.gob.cl/articulo/reaparece-el-ransomware-meow/" target="_blank" class="btn btn-light">Leer más</a></p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="bg-info d-flex align-items-center justify-content-center">
+                                        <img src="./assets/img/mekotio.JPG" alt="Mekotio" class="img-fluid">
+                                    </div>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Mekotio</h5>
+                                        <p>Octubre 2024: cómo trabaja el troyano bancario más efectivo de Latinoamérica.</p>
+                                        <p><a href="https://csirt.gob.cl/articulo/mekotio-c%C3%B3mo-trabaja-el-troyano-bancario-m%C3%A1s-efectivo-de-latinoam%C3%A9rica/" target="_blank" class="btn btn-light">Leer más</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#casosCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#casosCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjetas de Amenazas -->
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card threat-card h-100 text-center p-4">
+                            <div class="card-body">
+                                <i class="bi bi-envelope-exclamation threat-icon phishing"></i>
+                                <h4 class="card-title">Phishing</h4>
+                                <p class="card-text">
+                                    Técnica que busca obtener información confidencial haciéndose pasar por una entidad confiable.
+                                </p>
+                                <button class="btn btn-outline-danger" onclick="VerDetalleAmenazas('phishing')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card threat-card h-100 text-center p-4">
+                            <div class="card-body">
+                                <i class="bi bi-file-lock threat-icon ransomware"></i>
+                                <h4 class="card-title">Ransomware</h4>
+                                <p class="card-text">
+                                    Malware que cifra archivos y exige un rescate para desbloquearlos.
+                                </p>
+                                <button class="btn btn-outline-info" onclick="VerDetalleAmenazas('ransomware')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card threat-card h-100 text-center p-4">
+                            <div class="card-body">
+                                <i class="bi bi-bug threat-icon malware"></i>
+                                <h4 class="card-title">Malware</h4>
+                                <p class="card-text">
+                                    Software malicioso diseñado para dañar o acceder sin autorización a sistemas.
+                                </p>
+                                <button class="btn btn-outline-primary" onclick="VerDetalleAmenazas('malware')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card threat-card h-100 text-center p-4">
+                            <div class="card-body">
+                                <i class="bi bi-cloud-slash threat-icon ddos"></i>
+                                <h4 class="card-title">Ataques DDoS</h4>
+                                <p class="card-text">
+                                    Sobrecarga de servidores con tráfico masivo para hacerlos inaccesibles.
+                                </p>
+                                <button class="btn btn-outline-warning" onclick="VerDetalleAmenazas('ddos')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acordeón con detalles de amenazas -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h3 class="mb-4">Información Detallada</h3>
+                        <div class="accordion" id="threatAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#phishingCollapse">
+                                        <i class="bi bi-envelope-exclamation me-2 text-danger"></i>
+                                        Phishing - Técnicas de Engaño
+                                    </button>
+                                </h2>
+                                <div id="phishingCollapse" class="accordion-collapse collapse" data-bs-parent="#threatAccordion">
+                                    <div class="accordion-body">
+                                        <strong>¿Cómo funciona?</strong> Los atacantes envían correos, mensajes o crean sitios web falsos que imitan organizaciones legítimas.
+                                        <br><br>
+                                        <strong>Señales de alerta:</strong>
+                                        <ul>
+                                            <li>Errores ortográficos y gramaticales</li>
+                                            <li>Urgencia excesiva en el mensaje</li>
+                                            <li>Enlaces sospechosos</li>
+                                            <li>Solicitudes de información personal</li>
+                                        </ul>
+                                        <strong>Prevención:</strong> Verifica siempre la fuente, no hagas clic en enlaces sospechosos y usa autenticación de dos factores.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ransomwareCollapse">
+                                        <i class="bi bi-file-lock me-2 text-info"></i>
+                                        Ransomware - El Secuestro Digital
+                                    </button>
+                                </h2>
+                                <div id="ransomwareCollapse" class="accordion-collapse collapse" data-bs-parent="#threatAccordion">
+                                    <div class="accordion-body">
+                                        <strong>¿Qué es?</strong> Software malicioso que cifra archivos y exige pago para su liberación.
+                                        <br><br>
+                                        <strong>Métodos de infección:</strong>
+                                        <ul>
+                                            <li>Correos electrónicos con archivos adjuntos maliciosos</li>
+                                            <li>Descargas de software pirata</li>
+                                            <li>Vulnerabilidades en sistemas desactualizados</li>
+                                        </ul>
+                                        <strong>Prevención:</strong> Mantén backups regulares, actualiza software y capacita a los usuarios.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#malwareCollapse">
+                                        <i class="bi bi-bug me-2 text-primary"></i>
+                                        Malware - Software Malicioso
+                                    </button>
+                                </h2>
+                                <div id="malwareCollapse" class="accordion-collapse collapse" data-bs-parent="#threatAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Tipos principales:</strong>
+                                        <ul>
+                                            <li><strong>Virus:</strong> Se replica y se adjunta a otros archivos</li>
+                                            <li><strong>Gusanos:</strong> Se propaga automáticamente por redes</li>
+                                            <li><strong>Troyanos:</strong> Se oculta como software legítimo</li>
+                                            <li><strong>Spyware:</strong> Recopila información sin consentimiento</li>
+                                        </ul>
+                                        <strong>Protección:</strong> Usa antivirus actualizado, evita descargas sospechosas y mantén el sistema actualizado.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ddosCollapse">
+                                        <i class="bi bi-cloud-slash me-2 text-warning"></i>
+                                        Ataques DDoS - Denegación de Servicio
+                                    </button>
+                                </h2>
+                                <div id="ddosCollapse" class="accordion-collapse collapse" data-bs-parent="#threatAccordion">
+                                    <div class="accordion-body">
+                                        <strong>¿Cómo funcionan?</strong> Múltiples sistemas comprometidos envían tráfico masivo a un objetivo para sobrecargarlo.
+                                        <br><br>
+                                        <strong>Tipos de ataques:</strong>
+                                        <ul>
+                                            <li><strong>Volumétricos:</strong> Saturan el ancho de banda</li>
+                                            <li><strong>De protocolo:</strong> Explotan debilidades en protocolos</li>
+                                            <li><strong>De aplicación:</strong> Atacan aplicaciones específicas</li>
+                                        </ul>
+                                        <strong>Mitigación:</strong> Usa CDN, filtrado de tráfico y servicios de protección DDoS.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		<!-- Footer -->
+		<footer class="mt-3 bg-dark text-light" >
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h6>CiberSeguridad</h6>
+						<p><i class="bi bi-telephone"></i> (+56) 9 1234-5678 | <i class="bi bi-envelope"></i> contacto@ciberseguridad.cl</p>
+					</div>
+					<div class="col-md-6 text-md-end">
+						<h6>Síguenos</h6>
+						<div class="social-links">
+							<a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+							<a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+							<a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+							<a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="./assets/js/script.js"></script>
+
+</body>
+</html>
