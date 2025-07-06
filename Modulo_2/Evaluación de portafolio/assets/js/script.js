@@ -1,36 +1,5 @@
-
-        
-        // Navegación suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
         // Botón volver arriba
         const backToTopBtn = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
 
         // Animaciones de scroll
         const observerOptions = {
@@ -79,8 +48,7 @@
             // Formulario de contacto
             $('#contactForm').submit(function(e) {
                 e.preventDefault();
-                
-                // Simular envío de formulario
+
                 const originalText = $(this).find('button[type="submit"]').text();
                 $(this).find('button[type="submit"]').text('Enviando...');
                 
@@ -143,7 +111,6 @@
                 const project = projectData[projectId];
                 
                 $('#modalTitle').text(project.title);
-                
                 const modalContent = `
                     <div class="row">
                         <div class="col-12">
@@ -194,34 +161,26 @@
                     const current = Math.floor(progress * range + start);
                     
                     element.textContent = current;
-                    
-                    if (progress < 1) {
+                     if (progress < 1) {
                         requestAnimationFrame(updateCounter);
                     }
                 }
-                
                 requestAnimationFrame(updateCounter);
             }
 
-            // Validación de formulario mejorada
+            // Validación de formulario
             $('#contactForm input, #contactForm textarea').on('blur', function() {
                 const field = $(this);
                 const value = field.val().trim();
                 
-                // Remover clases previas
                 field.removeClass('is-valid is-invalid');
-                
-                // Validar según el tipo de campo
                 let isValid = false;
-                
                 if (field.attr('type') === 'email') {
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     isValid = emailRegex.test(value);
                 } else if (field.attr('required')) {
                     isValid = value.length > 0;
                 }
-                
-                // Aplicar clase correspondiente
                 if (isValid) {
                     field.addClass('is-valid');
                 } else if (value.length > 0) {
@@ -229,122 +188,12 @@
                 }
             });
 
-            // Efecto typewriter para el título principal
-            function typeWriter(element, text, speed = 100) {
-                let i = 0;
-                element.innerHTML = '';
-                
-                function type() {
-                    if (i < text.length) {
-                        element.innerHTML += text.charAt(i);
-                        i++;
-                        setTimeout(type, speed);
-                    }
-                }
-                
-                type();
-            }
-
-            // Aplicar efecto typewriter al título principal
-            setTimeout(function() {
-                const heroTitle = document.querySelector('.hero h1');
-                if (heroTitle) {
-                    const originalText = heroTitle.textContent;
-                    typeWriter(heroTitle, originalText, 80);
-                }
-            }, 500);
-
-            // Cambio de color del navbar al hacer scroll
-            $(window).scroll(function() {
-                if ($(window).scrollTop() > 50) {
-                    $('.navbar').addClass('scrolled');
-                } else {
-                    $('.navbar').removeClass('scrolled');
-                }
-            });
-
-            // Añadir estilo para navbar scrolled
-            $('<style>')
-                .prop('type', 'text/css')
-                .html(`
-                    .navbar.scrolled {
-                        background: rgba(255, 107, 107, 0.95) !important;
-                        backdrop-filter: blur(10px);
-                        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                    }
-                `)
-                .appendTo('head');
-
-            // Tooltip para iconos de redes sociales
-            $('[data-bs-toggle="tooltip"]').tooltip();
-
-            // Efecto parallax sutil en el hero
-            $(window).scroll(function() {
-                const scrolled = $(window).scrollTop();
-                const parallax = $('.hero');
-                const speed = scrolled * 0.5;
-                
-                parallax.css('transform', `translateY(${speed}px)`);
-            });
-
-            // Preloader simple
             $(window).on('load', function() {
                 $('body').addClass('loaded');
             });
 
-            // Añadir estilos para el preloader
-            $('<style>')
-                .prop('type', 'text/css')
-                .html(`
-                    .preloader {
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        background: white;
-                        z-index: 9999;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        transition: opacity 0.5s ease;
-                    }
-                    
-                    .preloader.fade-out {
-                        opacity: 0;
-                        pointer-events: none;
-                    }
-                    
-                    .spinner {
-                        width: 50px;
-                        height: 50px;
-                        border: 4px solid #f3f3f3;
-                        border-top: 4px solid var(--primary-color);
-                        border-radius: 50%;
-                        animation: spin 1s linear infinite;
-                    }
-                    
-                    @keyframes spin {
-                        0% { transform: rotate(0deg); }
-                        100% { transform: rotate(360deg); }
-                    }
-                    
-                    body.loaded .preloader {
-                        opacity: 0;
-                        pointer-events: none;
-                    }
-                `)
-                .appendTo('head');
-
-            // Crear elemento preloader
-            $('body').prepend(`
-                <div class="preloader">
-                    <div class="spinner"></div>
-                </div>
-            `);
-
-            // Función para mostrar mensajes de notificación
-            function showNotification(message, type = 'success') {
+             // Función para mostrar mensajes de notificación
+             function showNotification(message, type = 'success') {
                 const notification = $(`
                     <div class="notification ${type}">
                         <i class="fas fa-check-circle"></i>
@@ -353,7 +202,6 @@
                 `);
                 
                 $('body').append(notification);
-                
                 setTimeout(() => {
                     notification.addClass('show');
                 }, 100);
@@ -364,10 +212,10 @@
                         notification.remove();
                     }, 300);
                 }, 3000);
-            }
+             }
 
-            // Estilos para notificaciones
-            $('<style>')
+             // Estilos para notificaciones
+             $('<style>')
                 .prop('type', 'text/css')
                 .html(`
                     .notification {
@@ -387,20 +235,16 @@
                         align-items: center;
                         gap: 10px;
                     }
-                    
                     .notification.show {
                         transform: translateX(0);
                         opacity: 1;
                     }
-                    
                     .notification.success {
                         background: #28a745;
                     }
-                    
                     .notification.error {
                         background: #dc3545;
                     }
-                    
                     .notification.warning {
                         background: #ffc107;
                         color: #212529;
@@ -408,36 +252,20 @@
                 `)
                 .appendTo('head');
 
-            // Actualizar el envío del formulario para usar notificaciones
-            $('#contactForm').off('submit').on('submit', function(e) {
+             // Actualizar el envío del formulario para usar notificaciones
+             $('#contactForm').off('submit').on('submit', function(e) {
                 e.preventDefault();
                 
                 const button = $(this).find('button[type="submit"]');
                 const originalText = button.text();
-                
                 button.text('Enviando...').prop('disabled', true);
-                
                 setTimeout(() => {
-                    showNotification('¡Mensaje enviado correctamente! Te contactaré pronto.', 'success');
+                    showNotification('¡Mensaje enviado correctamente...', 'success');
                     this.reset();
                     button.text(originalText).prop('disabled', false);
-                    
-                    // Remover clases de validación
                     $(this).find('.form-control').removeClass('is-valid is-invalid');
                 }, 2000);
             });
-
-            // Función para cambiar tema (opcional)
-            function toggleTheme() {
-                $('body').toggleClass('dark-theme');
-                localStorage.setItem('theme', $('body').hasClass('dark-theme') ? 'dark' : 'light');
-            }
-
-            // Cargar tema guardado
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                $('body').addClass('dark-theme');
-            }
 
             // Estilos para tema oscuro
             $('<style>')
@@ -482,10 +310,4 @@
                 `)
                 .appendTo('head');
 
-            console.log('🎉 Portafolio Personal cargado correctamente!');
-            console.log('✅ HTML5 estructurado');
-            console.log('✅ CSS3 con diseño responsivo');
-            console.log('✅ Bootstrap 5 implementado');
-            console.log('✅ JavaScript vanilla funcional');
-            console.log('✅ jQuery con efectos dinámicos');
-        });
+             });
