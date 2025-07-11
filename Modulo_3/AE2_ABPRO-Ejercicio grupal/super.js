@@ -77,3 +77,10 @@ function finalizarCompra() {
 
     console.log(`Total a pagar: $${totalCompra}. Gracias por tu compra.`);
 }
+
+
+agregarProducto('LECHE', 1, 1560)
+agregarProducto('PAN', 1, 300)
+agregarProducto('ARROZ', 1, 4500)
+quitarProducto(1);
+finalizarCompra();
