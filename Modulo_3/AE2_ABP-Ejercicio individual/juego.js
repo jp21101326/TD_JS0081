@@ -58,7 +58,7 @@ for (let i = 0; i < jugadores.length; i++) {
              // Vida extra si el puntaje es múltiplo de 100
              if (jugador.puntaje % puntaje_vida_extra === 0 && jugador.vidas < maximo_vidas) {
                  jugador.vidas++;
-                 console.log("💚 " + jugador.nombre + " gana una vida extra.");
+                 console.log("Bien hecho " + jugador.nombre + " ganaste una vida extra.");
              }
 
              if (jugador.vidas > maximo_vidas) {
