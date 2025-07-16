@@ -12,6 +12,7 @@ const cliente = {
     activo: Boolean,
 };
 
+
 // ----------------------------------------------------
 // # 2 CREAR UN ARREGLO DE OBJETOS CLIENTE
 // ----------------------------------------------------
@@ -46,23 +47,27 @@ clientes.push({
 });
 
 
-
-
-
 // ----------------------------------------------------
 // #3 ACCEDER A INFORMACIÓN DE CLIENTES
 // ----------------------------------------------------
+console.log('----------------------------------------------------');
+console.log('#3 ACCEDER A INFORMACIÓN DE CLIENTES');
+console.log('----------------------------------------------------');
 function mostrarInformacion() {
     for (let i = 0; i < clientes.length; i++) {
         const c = clientes[i];
         console.log(`ID: ${c.id} | Nombre: ${c.nombre} ${c.apellido} | Email: ${c.email} | Teléfono: ${c.telefono} | Activo: ${c.activo ? 'Sí' : 'No'}`);
     }
 }
-MostrarInformacion();
+mostrarInformacion();
+
 
 // ----------------------------------------------------
 // #3 VERSIÓN 2 SIN FUNCTION
 // ----------------------------------------------------
+console.log('-------------------------');
+console.log('#3 VERSIÓN 2 SIN FUNCTION');
+console.log('-------------------------');
 for (let i = 0; i < clientes.length; i++) {
     console.log(`
 	cliente ${clientes[i].id}
@@ -73,9 +78,13 @@ for (let i = 0; i < clientes.length; i++) {
     `);
 }
 
+
 // --------------------------------------------------------
 // #4 CONTAR LA CANTIDAD DE CLIENTES ACTIVOS
 // --------------------------------------------------------
+console.log('-----------------------------------------');
+console.log('#4 CONTAR LA CANTIDAD DE CLIENTES ACTIVOS');
+console.log('-----------------------------------------');
 function contarActivos() {
     let clientesActivos = 0;
     for (let i = 0; i < clientes.length; i++) {
@@ -85,29 +94,33 @@ function contarActivos() {
     }
     console.log('Número de clientes activos: ' + clientesActivos);
 }
-ContarActivos();
+contarActivos();
+
 
 // ----------------------------------------------------
 // #5 AGREGAR UN NUEVO CLIENTE
 // ----------------------------------------------------
-function agregarCliente() {
-    let nombre = prompt('Ingrese un nombre');
-    let apellido = prompt(`Ingrese apellido de ${nombre}`);
-    let email = prompt(`Ingrese email de ${nombre}`);
-    let telefono = prompt(`Ingrese telefono de ${nombre}`);
-    let activo = prompt(`¿${nombre} es activo? true/false`) === 'true';
-
-    // como obtener el id y ponerlo adecuadamente sin preguntar con prompt?
-    let id = clientes.length + 1;
-    clientes.push({ id, nombre, apellido, email, telefono, activo });
+console.log('----------------------------------------------------');
+console.log('#5 AGREGAR UN NUEVO CLIENTE');
+console.log('----------------------------------------------------');
+function agregarCliente(nombre, apellido, email, telefono, activo) {
+     // como obtener el id y ponerlo adecuadamente sin preguntar con prompt?
+     let id = clientes.length + 1;
+     clientes.push({ id, nombre, apellido, email, telefono, activo });
+     console.log("Cliente agregado exitosamente!!");
+     console.log("------------------------------------------------------------------------------");
 }
 
-agregarCliente();
+agregarCliente('Rodrigo', 'Martínez', 'rodrigo.martinez@example.com', '123456789', false);
 console.table(clientes);
+
 
 // ----------------------------------------------------
 // #6 ELIMINAR UN CLIENTE POR ID
 // ----------------------------------------------------
+console.log('----------------------------------------------------');
+console.log('#6 ELIMINAR UN CLIENTE POR ID');
+console.log('----------------------------------------------------');
 function eliminarPorID(id) {
     const index = clientes.findIndex((cliente) => cliente.id === id);
     if (index !== -1) {
@@ -121,9 +134,13 @@ function eliminarPorID(id) {
 eliminarPorID(2);
 mostrarInformacion();
 
+
 // ----------------------------------------------------
 // #7 MODIFICAR UN CLIENTE
 // ----------------------------------------------------
+console.log('----------------------------------------------------');
+console.log('#7 MODIFICAR UN CLIENTE');
+console.log('----------------------------------------------------');
 function modificarCliente(id, clienteModificado) {
     const index = clientes.findIndex((cliente) => cliente.id === id);
     if (index !== -1) {
@@ -140,20 +157,21 @@ function modificarCliente(id, clienteModificado) {
 }
 
 modificarCliente(1, {
-    nombre: 'Carlos',
-    apellido: 'Ramírez',
-    email: 'carlos.ramirez@example.com',
+    nombre: 'Lucia',
+    apellido: 'Sepúlveda',
+    email: 'lucia.sepulveda@example.com',
     telefono: '111222333',
     activo: false,
 });
 mostrarInformacion();
 
 
-
-
 // ----------------------------------------------------
 // #8 CONSULTAR CLIENTES INACTIVOS
 // ----------------------------------------------------
+console.log('----------------------------------------------------');
+console.log('#8 CONSULTAR CLIENTES INACTIVOS');
+console.log('----------------------------------------------------');
 function consultarInactivos() {
     const inactivos = clientes.filter((cliente) => !cliente.activo);
     if (inactivos.length > 0) {
@@ -169,14 +187,21 @@ function consultarInactivos() {
 consultarInactivos();
 
 // ----------------------------------------------------
-// #8 ALTERNATIVA
+// #8 ALTERNATIVA 2
 // ----------------------------------------------------
+console.log('----------------');
+console.log('#8 ALTERNATIVA 2');
+console.log('----------------');
 let nuevoArreglo = clientes.filter((cliente) => cliente.activo === false);
 console.table(nuevoArreglo);
+
 
 // --------------------------------------------------------
 // #9  FUNCIÓN PARA UNIR ARREGLOS DE CLIENTES
 // --------------------------------------------------------
+console.log('----------------------------------------------------');
+console.log('#9 FUNCIÓN PARA UNIR ARREGLOS DE CLIENTES');
+console.log('----------------------------------------------------');
 function unirClientes(nuevosClientes) {
     if (Array.isArray(nuevosClientes)) {
         clientes = [...clientes, ...nuevosClientes];
@@ -199,14 +224,12 @@ unirClientes([
 mostrarInformacion();
 
 
-
-
-
-
-
 // ----------------------------------------------------------------
 // #9 FILTRAR CLIENTES ÚNICOS (SACAR LOS DUPLICADOS)
 // ----------------------------------------------------------------
+console.log('----------------------------------------------------');
+console.log('#9 FILTRAR CLIENTES ÚNICOS (SACAR LOS DUPLICADOS)');
+console.log('----------------------------------------------------');
 function filtrarClientesUnicos(lista = []) {
     const map = new Map();
     lista.forEach((cliente) => {
@@ -220,33 +243,70 @@ function filtrarClientesUnicos(lista = []) {
 clientes = filtrarClientesUnicos(clientes);
 console.log('Clientes únicos:', clientes);
 
+
 // ----------------------------------------------------------------------------------------------
 // #10 CICLO WHILE PARA CONSULTAR DATOS DE CLIENTE HASTA OBTENER ID VÁLIDO
 // ----------------------------------------------------------------------------------------------
-function buscarCliente() {
-    let idValido = false;
-    let cliente;
+//function buscarCliente() {
+//   let idValido = false;
+//    let cliente;
+//    while (!idValido) {
+//       const entrada = prompt('Ingrese el ID del cliente:');
+//        const id = parseInt(entrada);
+//        cliente = clientes.find((c) => c.id === id);
+//        if (cliente) {
+//            idValido = true;
+//        } else {
+//            alert(`No se encontró cliente con id ${id}. Intenta de nuevo`);
+//        }
+//    }
+//    console.log('Cliente encontrado:');
+//    console.table(cliente);
+//}
 
-    while (!idValido) {
-        const entrada = prompt('Ingrese el ID del cliente:');
-        const id = parseInt(entrada);
+// Simula intentos con un arreglo de IDs a consultar
+console.log('-----------------------------------------------------------------------');
+console.log('#10 - 1 CICLO WHILE PARA CONSULTAR DATOS DE CLIENTE HASTA OBTENER ID VÁLIDO');
+console.log('-----------------------------------------------------------------------');
+function consultarClienteHastaValido(idInicial) {
+  const intentos = [, 99, 12, idInicial, 33, 1]; // lista simulada de intentos
+  let cliente = null;
+  let i = 0;
 
-        cliente = clientes.find((c) => c.id === id);
-        if (cliente) {
-            idValido = true;
-        } else {
-            alert(`No se encontró cliente con id ${id}. Intenta de nuevo`);
-        }
+  while (!cliente && i < intentos.length) {
+    const id = intentos[i];
+    console.log(`Intento con ID: ${id}`);
+
+    const encontrado = clientes.find(c => c.id === id && c.activo);
+    if (encontrado) {
+      cliente = encontrado;
+      break; // sale del while
     }
+    i++;
+  }
 
-    console.log('Cliente encontrado:');
-    console.table(cliente);
+  if (cliente) {
+    console.log("Cliente encontrado:");
+    console.log(`ID: ${cliente.id}`);
+    console.log(`Nombre: ${cliente.nombre} ${cliente.apellido}`);
+    console.log(`Email: ${cliente.email}`);
+    console.log(`Teléfono: ${cliente.telefono}`);
+  } else {
+    console.log("No se encontró un cliente válido.");
+  }
 }
+
+consultarClienteHastaValido(3); // empezará con el ID 2, que es inactivo
+
 
 // -----------------------------------------------------------------------------------------
 // #10 FOR PARA REALIZAR CONSULTA MASIVA DE TODOS LOS CLIENTES ACTIVOS
 // ------------------------------------------------------------------------------------------
+console.log('----------------------------------------------------------');
+console.log('10 - 2 Consulta masiva de clientes activos utilizando for:');
+console.log('----------------------------------------------------------');
 for (let i = 0; i < clientes.length; i++) {
+    console.log('clientes activos:');
     if (clientes[i].activo) {
         console.log(`
     ID: ${clientes[i].id} 
@@ -258,9 +318,13 @@ for (let i = 0; i < clientes.length; i++) {
     }
 }
 
+
 // ----------------------------------------------------
 // #11 COMBINACION DE CICLO CON IF/ELSE
 // ----------------------------------------------------
+console.log('----------------------------------------------------');
+console.log('#11 COMBINACION DE CICLO CON IF/ELSE');
+console.log('----------------------------------------------------');
 clientes.forEach((cliente) => {
     if (cliente.activo) {
         console.log(`${cliente.nombre} está activo`);
