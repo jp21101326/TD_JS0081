@@ -14,42 +14,44 @@ const cliente = {
 
 
 // ----------------------------------------------------
-// # 2 CREAR UN ARREGLO DE OBJETOS CLIENTE
+// # 2 - CREAR UN ARREGLO DE OBJETOS CLIENTE
 // ----------------------------------------------------
+console.log('----------------------------------------');
+console.log('# 2 - CREAR UN ARREGLO DE OBJETOS CLIENT');
+console.log('----------------------------------------');
 let clientes = [];
 
-// insertar al menos 3 clientes
 clientes.push({
     id: 1,
-    nombre: 'Juan',
+    nombre:   'Juan',
     apellido: 'Pérez',
-    email: 'juan.perez@example.com',
+    email:    'juan.perez@example.com',
     telefono: '123456789',
-    activo: true,
+    activo:   true,
 });
 
 clientes.push({
     id: 2,
-    nombre: 'María',
+    nombre:   'María',
     apellido: 'Gómez',
-    email: 'maria.gomez@example.com',
+    email:    'maria.gomez@example.com',
     telefono: '987654321',
-    activo: false,
+    activo:   false,
 });
 
 clientes.push({
     id: 3,
-    nombre: 'Luis',
+    nombre:   'Luis',
     apellido: 'Martínez',
-    email: 'luis.martinez@example.com',
+    email:    'luis.martinez@example.com',
     telefono: '456789123',
-    activo: true,
+    activo:   true,
 });
 
 
-// ----------------------------------------------------
+// --------------------------------------------------------------
 // #3 ACCEDER A INFORMACIÓN DE CLIENTES
-// ----------------------------------------------------
+// --------------------------------------------------------------
 console.log('----------------------------------------------------');
 console.log('#3 ACCEDER A INFORMACIÓN DE CLIENTES');
 console.log('----------------------------------------------------');
@@ -62,9 +64,9 @@ function mostrarInformacion() {
 mostrarInformacion();
 
 
-// ----------------------------------------------------
+// -----------------------------------
 // #3 VERSIÓN 2 SIN FUNCTION
-// ----------------------------------------------------
+// -----------------------------------
 console.log('-------------------------');
 console.log('#3 VERSIÓN 2 SIN FUNCTION');
 console.log('-------------------------');
@@ -79,9 +81,9 @@ for (let i = 0; i < clientes.length; i++) {
 }
 
 
-// --------------------------------------------------------
+// ---------------------------------------------------
 // #4 CONTAR LA CANTIDAD DE CLIENTES ACTIVOS
-// --------------------------------------------------------
+// ---------------------------------------------------
 console.log('-----------------------------------------');
 console.log('#4 CONTAR LA CANTIDAD DE CLIENTES ACTIVOS');
 console.log('-----------------------------------------');
@@ -97,9 +99,9 @@ function contarActivos() {
 contarActivos();
 
 
-// ----------------------------------------------------
+// --------------------------------------------------------------
 // #5 AGREGAR UN NUEVO CLIENTE
-// ----------------------------------------------------
+// --------------------------------------------------------------
 console.log('----------------------------------------------------');
 console.log('#5 AGREGAR UN NUEVO CLIENTE');
 console.log('----------------------------------------------------');
@@ -108,16 +110,16 @@ function agregarCliente(nombre, apellido, email, telefono, activo) {
      let id = clientes.length + 1;
      clientes.push({ id, nombre, apellido, email, telefono, activo });
      console.log("Cliente agregado exitosamente!!");
-     console.log("------------------------------------------------------------------------------");
+     console.log("-------------------------------");
 }
 
 agregarCliente('Rodrigo', 'Martínez', 'rodrigo.martinez@example.com', '123456789', false);
 console.table(clientes);
 
 
-// ----------------------------------------------------
+// --------------------------------------------------------------
 // #6 ELIMINAR UN CLIENTE POR ID
-// ----------------------------------------------------
+// --------------------------------------------------------------
 console.log('----------------------------------------------------');
 console.log('#6 ELIMINAR UN CLIENTE POR ID');
 console.log('----------------------------------------------------');
@@ -135,9 +137,9 @@ eliminarPorID(2);
 mostrarInformacion();
 
 
-// ----------------------------------------------------
+// --------------------------------------------------------------
 // #7 MODIFICAR UN CLIENTE
-// ----------------------------------------------------
+// --------------------------------------------------------------
 console.log('----------------------------------------------------');
 console.log('#7 MODIFICAR UN CLIENTE');
 console.log('----------------------------------------------------');
@@ -166,9 +168,9 @@ modificarCliente(1, {
 mostrarInformacion();
 
 
-// ----------------------------------------------------
+// --------------------------------------------------------------
 // #8 CONSULTAR CLIENTES INACTIVOS
-// ----------------------------------------------------
+// --------------------------------------------------------------
 console.log('----------------------------------------------------');
 console.log('#8 CONSULTAR CLIENTES INACTIVOS');
 console.log('----------------------------------------------------');
@@ -196,9 +198,9 @@ let nuevoArreglo = clientes.filter((cliente) => cliente.activo === false);
 console.table(nuevoArreglo);
 
 
-// --------------------------------------------------------
+// --------------------------------------------------------------
 // #9  FUNCIÓN PARA UNIR ARREGLOS DE CLIENTES
-// --------------------------------------------------------
+// --------------------------------------------------------------
 console.log('----------------------------------------------------');
 console.log('#9 FUNCIÓN PARA UNIR ARREGLOS DE CLIENTES');
 console.log('----------------------------------------------------');
@@ -224,9 +226,9 @@ unirClientes([
 mostrarInformacion();
 
 
-// ----------------------------------------------------------------
+// --------------------------------------------------------------
 // #9 FILTRAR CLIENTES ÚNICOS (SACAR LOS DUPLICADOS)
-// ----------------------------------------------------------------
+// --------------------------------------------------------------
 console.log('----------------------------------------------------');
 console.log('#9 FILTRAR CLIENTES ÚNICOS (SACAR LOS DUPLICADOS)');
 console.log('----------------------------------------------------');
@@ -245,7 +247,7 @@ console.log('Clientes únicos:', clientes);
 
 
 // ----------------------------------------------------------------------------------------------
-// #10 CICLO WHILE PARA CONSULTAR DATOS DE CLIENTE HASTA OBTENER ID VÁLIDO
+// #10 CICLO WHILE PARA CONSULTAR DATOS DE CLIENTE HASTA OBTENER ID VÁLIDO CON PROMPT
 // ----------------------------------------------------------------------------------------------
 //function buscarCliente() {
 //   let idValido = false;
@@ -279,8 +281,8 @@ function consultarClienteHastaValido(idInicial) {
 
     const encontrado = clientes.find(c => c.id === id && c.activo);
     if (encontrado) {
-      cliente = encontrado;
-      break; // sale del while
+        cliente = encontrado;
+        break; 
     }
     i++;
   }
@@ -296,12 +298,11 @@ function consultarClienteHastaValido(idInicial) {
   }
 }
 
-consultarClienteHastaValido(3); // empezará con el ID 2, que es inactivo
+consultarClienteHastaValido(3); 
 
-
-// -----------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------
 // #10 FOR PARA REALIZAR CONSULTA MASIVA DE TODOS LOS CLIENTES ACTIVOS
-// ------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------
 console.log('----------------------------------------------------------');
 console.log('10 - 2 Consulta masiva de clientes activos utilizando for:');
 console.log('----------------------------------------------------------');
@@ -309,19 +310,19 @@ for (let i = 0; i < clientes.length; i++) {
     console.log('clientes activos:');
     if (clientes[i].activo) {
         console.log(`
-    ID: ${clientes[i].id} 
-    Nombre: ${clientes[i].nombre}
-    Apellido: ${clientes[i].apellido}
-    Email: ${clientes[i].email}
-    Teléfono: ${clientes[i].telefono}
+        ID: ${clientes[i].id} 
+        Nombre: ${clientes[i].nombre}
+        Apellido: ${clientes[i].apellido}
+        Email: ${clientes[i].email}
+        Teléfono: ${clientes[i].telefono}
     `);
     }
 }
 
 
-// ----------------------------------------------------
+// --------------------------------------------------------------
 // #11 COMBINACION DE CICLO CON IF/ELSE
-// ----------------------------------------------------
+// --------------------------------------------------------------
 console.log('----------------------------------------------------');
 console.log('#11 COMBINACION DE CICLO CON IF/ELSE');
 console.log('----------------------------------------------------');
