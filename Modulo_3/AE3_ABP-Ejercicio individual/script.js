@@ -1,18 +1,12 @@
-// Importamos el módulo readline para entrada de datos por consola (Node.js)
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-
-// 1.- Arreglo vacío para empleados
+console.log("---------------------------------------------------------------------");
+console.log("1.- Arreglo vacío para empleados");
+console.log("---------------------------------------------------------------------");
 let empleados = [];
 
-// 2.- Agregamos 5 empleados al arreglo
+console.log("---------------------------------------------------------------------");
+console.log("2.- Agregamos 5 empleados al arreglo");
+console.log("---------------------------------------------------------------------");
 function IniciarEmpleados() {
-    console.log("2.- Agregar al menos 5 objetos de empleados al arreglo");
     empleados.push(
     { nombre: "Lucia",   edad: 28, puesto: "Diseñadora",    salario: 4200 },
     { nombre: "Erika",   edad: 45, puesto: "Contador",      salario: 5000 },
@@ -20,12 +14,12 @@ function IniciarEmpleados() {
     { nombre: "Roberto", edad: 38, puesto: "Desarrollador", salario: 4800 },
     { nombre: "Vitor",   edad: 51, puesto: "Marketing",     salario: 4500 }
     );
-    console.log("------------------------------------------------------------------------------");
 }
 
-// 3.- Mostrar un empleado por índice
+console.log("---------------------------------------------------------------------");
+console.log("3.- Mostrar un empleado por índice");
+console.log("---------------------------------------------------------------------");
 function mostrarEmpleadoPorIndice(indice) {
-    console.log("3.- Acceder a un elemento específico");
     if (empleados[indice]) {
         console.log("ID Empleado", indice, ":", empleados[indice]);
         console.log("Nombre:", empleados[indice].nombre);
@@ -35,61 +29,67 @@ function mostrarEmpleadoPorIndice(indice) {
     } else {
         console.log("ID Empleado fuera de rango.");
     }
-    console.log("------------------------------------------------------------------------------");
+    
 }
 
-// 4.- Contar empleados
+console.log("---------------------------------------------------------------------");
+console.log("4.- Contar empleados");
+console.log("---------------------------------------------------------------------");
 function contarEmpleados() {
-    console.log("4.- Contar el número de empleados en el arreglo usando la propiedad length y mostrarlo en consola.");
     console.log("Total de empleados:", empleados.length);
-    console.log("------------------------------------------------------------------------------");
 }
 
-// 5.- Mostrar nombre del empleado
+console.log("---------------------------------------------------------------------");
+console.log("5.- Mostrar nombre del empleado");
+console.log("---------------------------------------------------------------------");
 function mostrarNombreEmpleado() {
-     console.log("5.- Iterar sobre el arreglo de empleados utilizando un ciclo for para mostrar en consola el nombre de cada empleado.");
      for (let i = 0; i < empleados.length; i++) {
         console.log("-", empleados[i].nombre);
      }
-     console.log("------------------------------------------------------------------------------");
 }
 
-// 6.- Agregar un empleado al arreglo
+console.log("---------------------------------------------------------------------");
+console.log("6.- Agregar un empleado al arreglo");
+console.log("---------------------------------------------------------------------");
 function agregarEmpleado(nombre, edad, puesto, salario) {
-     console.log("6.- Añadir un nuevo empleado al final del arreglo utilizando el método push().");
      empleados.push({ nombre, edad, puesto, salario });
      console.log("Empleado agregado exitosamente!!");
-     console.log("------------------------------------------------------------------------------");
 }
 
-// 7.- Eliminar empleado por índice
+console.log("---------------------------------------------------------------------");
+console.log("7.- Eliminar empleado por índice");
+console.log("---------------------------------------------------------------------");
 function eliminarEmpleado(indice) {
-    console.log("7.- Eliminar un empleado del arreglo utilizando el método splice() y mostrar el arreglo actualizado en consola.");
     if (indice >= 0 && indice < empleados.length) {
         empleados.splice(indice, 1);
         console.log("Empleado eliminado exitosamente!!", indice);
     } else {
         console.log("Índice Empleado no válido.");
     }
-    console.log("------------------------------------------------------------------------------");
+ 
 }
 
-// Mostrar todos los empleados
+console.log("---------------------------------------------------------------------");
+console.log("Mostrar todos los empleados");
+console.log("---------------------------------------------------------------------");
 function listarEmpleados() {
      console.log("Listado Actualizado de empleados:");
      empleados.forEach(emp => console.log("-", emp.nombre));
-     console.log("------------------------------------------------------------------------------");
 }
 
-// 8.- Realizar operaciones algebraicas:
-// 8.1 Calcular salario total
+console.log("---------------------------------------------------------------------");
+console.log("8.- Realizar operaciones algebraicas:");
+console.log("8.1 Calcular salario total");
+console.log("---------------------------------------------------------------------");
 function calcularSalarioTotal() {
     let total = 0;
     empleados.forEach(emp => total += emp.salario);
     return total;
 }
 
-// 8.2 Buscar empleado con salario más alto
+console.log("---------------------------------------------------------------------");
+console.log("8.2 Buscar empleado con salario más alto");
+console.log("---------------------------------------------------------------------");
 function empleadoConSalarioMaximo() {
     let top = empleados[0];
     for (let i = 1; i < empleados.length; i++) {
@@ -100,20 +100,24 @@ function empleadoConSalarioMaximo() {
     return top;
 }
 
-// 8.3 Concatenar nombres de empleados
+console.log("---------------------------------------------------------------------");
+console.log("8.3 Concatenar nombres de empleados");
+console.log("---------------------------------------------------------------------");
 function concatenarNombres() {
     //return empleados.map(e => e.nombre).join(", ");
-    console.log("8.- Concatenar los nombres de todos los empleados en un solo string.");
+
     let nombresConcatenados = "";
     for (let i = 0; i < empleados.length; i++) {
     nombresConcatenados += empleados[i].nombre;
     if (i !== empleados.length - 1) nombresConcatenados += ", ";
     }
     console.log("\n📝 Nombres concatenados:", nombresConcatenados);
-    console.log("------------------------------------------------------------------------------");
+  
 }
 
-// 9.- empleado con el salario más alto
+console.log("---------------------------------------------------------------------");
+console.log("9.- empleado con el salario más alto");
+console.log("---------------------------------------------------------------------");
 function verificarSalariosAltos(limite) {
      console.log("Empleados con un salario superior a", limite);
     let i = 0;
@@ -125,16 +129,42 @@ function verificarSalariosAltos(limite) {
         i++;
     }
     console.log("Ningún salario supera", limite);
-    console.log("------------------------------------------------------------------------------");
+   
 }
 
 
 // 10.- Agregar empleados con do/while
-// revisar como generar esta function
+console.log("-----------------------------------------------------------------------");
+console.log("10.- Simular ingreso de empleados con do/while (sin readline ni prompt)");
+console.log("-----------------------------------------------------------------------");
+
+const nuevosEmpleados = [
+  { nombre: "Ana", edad: 32, puesto: "Ventas", salario: 3900 },
+  { nombre: "Carlos", edad: 29, puesto: "Diseñador", salario: 4100 },
+  { nombre: "Sofia", edad: 41, puesto: "Analista", salario: 4700 }
+];
+
+let index = 0;
+let deseaAgregar = true;
+do {
+    const nuevo = nuevosEmpleados[index];
+    if (nuevo) {
+        empleados.push(nuevo);
+        console.log("Empleado agregado:", nuevo.nombre);
+        index++;
+    } else {
+        deseaAgregar = false; 
+    }
+} while (deseaAgregar);
+
+console.log("Empleados después del do/while simulado:");
+listarEmpleados();
 
 
-//11.-  Aplicar condiciones:
-//11.1  Verificar empleados mayores de 50 (senior)
+console.log("---------------------------------------------------------------------");
+console.log("11.-  Aplicar condiciones:");
+console.log("11.1  Verificar empleados mayores de 50 (senior)");
+console.log("---------------------------------------------------------------------");
 function verificarEmpleadosSenior() {
     console.log("Empleados mayores de 50 años, es un empleado senior:");
     for (let i = 0; i < empleados.length; i++) {
@@ -144,19 +174,22 @@ function verificarEmpleadosSenior() {
             console.log(empleados[i].nombre, ", no es senior.");
         }
     }
-    console.log("------------------------------------------------------------------------------");
+    
 }
 
-// 12.- Realizar una operación de diferencia
-// Comparar salarios entre departamentos
+console.log("---------------------------------------------------------------------");
+console.log("12.- Realizar una operación de diferencia");
+console.log("Comparar salarios entre departamentos");
+console.log("---------------------------------------------------------------------");
 function compararSalariosDepartamentos(depto1, depto2) {
   let diferencia = [];
   let minLength = Math.min(depto1.length, depto2.length);
   for (let i = 0; i < minLength; i++) {
     diferencia.push(Math.abs(depto1[i] - depto2[i]));
   }
-  console.log("\n📊 Diferencia entre salarios de departamentos:", diferencia);
+  console.log("Diferencia entre salarios de departamentos:", diferencia);
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 function compararSalariosPorTodosLosPuestos() {
   // 1. Agrupar salarios por puesto
@@ -198,7 +231,6 @@ function compararSalariosPorTodosLosPuestos() {
 
 
 ////////////////////////////////////////
-
 // 2.- Iniciar empleados
 IniciarEmpleados();
 // 3.- Mostrar empleado 
@@ -235,7 +267,6 @@ verificarEmpleadosSenior();
 
 // interacción para agregar empleados
 // 10.- Usar la instrucción do/while para pedir al usuario que ingrese los datos de un nuevo empleado.
-//      El ciclo debe continuar hasta que el usuario decida no agregar más empleados
 
 
 //Realizar una operación de diferencia 
