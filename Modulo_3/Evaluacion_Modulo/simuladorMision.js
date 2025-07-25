@@ -123,7 +123,7 @@ async function iniciarMision() {
 // Explorar (reduce recursos y puede afectar salud)
 function explorar() {
      console.log("-----------------------------------------------");
-     console.log("Explorando el espacio...");
+     console.log("OPCIÓN 1: Explorando el espacio...");
      console.log("-----------------------------------------------");
      recursosDisponibles.energia -= 15;
      recursosDisponibles.agua -= 5;
@@ -146,20 +146,20 @@ function comer() {
              if (t.salud > 100) t.salud = 100;
          });
          console.log("-----------------------------------------------");
-         console.log("Reduce comida y recuperando salud.");
+         console.log("OPCIÓN 2: Reduce comida y recuperando salud.");
          console.log("-----------------------------------------------");
      } else {
          console.log("-----------------------------------------------");
-         console.log("No hay suficiente comida.");
+         console.log("OPCIÓN 2: No hay suficiente comida.");
          console.log("-----------------------------------------------");
      }
 }
 
 // Descansar (recupera salud, consume tiempo)
 function descansar() {
-     console.log("-----------------------------------------------");
-     console.log("La tripulación ha descansado. Salud recuperada.");
-     console.log("-----------------------------------------------");
+     console.log("---------------------------------------------------------");
+     console.log("OPCIÓN 3: La tripulación ha descansado. Salud recuperada.");
+     console.log("---------------------------------------------------------");
      recursosDisponibles.energia -= 10;
      nave.tripulacion.forEach(t => {
          t.salud += 5;
@@ -186,15 +186,15 @@ async function InformesFinales() {
         switch (opcion.trim()) {
             case "1":
                 let promedio = promedioSalud();
-                console.log("-----------------------------------------------");
-                console.log(`Promedio de salud tripulación: ${promedio}`);
-                console.log("-----------------------------------------------");
+                console.log("-----------------------------------------------------");
+                console.log(`OPCIÓN 1: Promedio de salud tripulación: ${promedio}`);
+                console.log("-----------------------------------------------------");
                 break;
             case "2":
                 let criticos = tripulantesConSaludMenor();
-                console.log("-----------------------------------------------");
-                console.log(`Tripulantes con salud menor a 50: ${criticos}`);
-                console.log("-----------------------------------------------");
+                console.log("-----------------------------------------------------");
+                console.log(`OPCIÓN 2: Tripulantes con salud menor a 50: ${criticos}`);
+                console.log("-----------------------------------------------------");
                 break;
             case "3":
                 estadoFinalMision();
@@ -228,7 +228,7 @@ function tripulantesConSaludMenor() {
 // El estado de los recursos|
 function estadoFinalMision() {
      console.log("-----------------------------------------------");
-     console.log("Estado final de recursos:");
+     console.log("OPCIÓN 3: Estado final de recursos:");
      nave.reportarRecursos();
      console.log("-----------------------------------------------");
 }
