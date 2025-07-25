@@ -63,8 +63,6 @@ const primeraLetra = superheroe.nombre.charAt(0);
 //4.3 Comparar la versión primitiva y la versión como objeto del nombre.
 const nombrePrimitivo = superheroe.nombre;
 const nombreObjeto = new String(superheroe.nombre);
-console.log(nombrePrimitivo);
-console.log(nombreObjeto);
 
 console.log("----------------------------------------------------------")
 console.log("Paso 5: Resultado esperado en consola")
