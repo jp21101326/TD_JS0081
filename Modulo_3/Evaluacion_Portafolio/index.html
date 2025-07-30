@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Evaluación de Portafolio</title>
+
+    <!-- Bootstrap y estilos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#inicio">
+                <i class="bi bi-journal-code me-2"></i>Portafolio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Proyecto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="definiciones.html">Definiciones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+     </nav>
+
+     <!-- Contenido principal -->
+     <main class="container py-5 flex-grow-1" id="proyecto">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h1 class="card-title text-center mb-4">Aplicación Lista de Tareas (To-Do List)</h1>
+                        <p id="fecha" class="text-center text-muted mb-4"></p>
+
+                        <div class="input-group mb-3">
+                            <input type="text" id="nuevaTarea" class="form-control" placeholder="Escribe una nueva tarea..." />
+                            <button class="btn btn-primary" type="button" onclick="agregarTarea()">
+                                <i class="bi bi-plus-circle me-1"></i>Agregar
+                            </button>
+                        </div>
+
+                        <!-- <p id="mensaje" class="text-danger"></p> -->
+                        <div id="mensaje" class="mensaje" role="alert" aria-live="polite"></div>
+                        
+                        <ul id="listaTareas" class="list-group"></ul>
+                        
+                        <div class="tasks-section">
+                            <div class="tasks-counter" id="contador">
+                            </div>
+                            <ul id="taskList" role="list">
+                            </ul>
+                            
+                            <div id="emptyState" class="empty-state">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+     </main>
+ 
+
+
+
+     <!-- Footer -->
+     <footer class="bg-dark text-white text-center py-3 mt-5">
+         <div class="container">
+             <small>&copy; Skillnest 2025 - Evaluación de portafolio [Actividad Evaluada].</small>
+         </div>
+     </footer>
+
+     <!-- Scripts -->
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="assets/js/script.js"></script>
+</body>
+</html>
