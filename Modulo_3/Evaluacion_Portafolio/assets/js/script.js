@@ -85,9 +85,14 @@
 
 // Eliminar una tarea por su ID
    function eliminarTarea(id) {
-       tareas = tareas.filter((t) => t.id !== id); 
-       mostrarTareas();
-       mostrarAviso('Tarea Eliminada exitosamente', 'success');  
+        const index = tareas.findIndex(t => t.id === id);
+        if (index !== -1) {
+            tareas.splice(index, 1);
+            mostrarTareas();
+            mostrarAviso('Tarea Eliminada exitosamente', 'success');  
+        } else {
+            mostrarAviso('No se encontró la tarea', 'warning');
+        }
    }
 
    function obtenerFecha() {
