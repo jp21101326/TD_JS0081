@@ -1,0 +1,27 @@
+
+    body {
+      background-color: #f8f9fa;
+    }
+    .profile-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .profile-card {
+      text-align: center;
+    }
+    .profile-card img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+    .post {
+      background-color: #f1f1f1;
+      border: 1px solid #999;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
