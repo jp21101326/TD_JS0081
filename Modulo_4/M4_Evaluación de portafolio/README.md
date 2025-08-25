@@ -74,3 +74,6 @@ http://127.0.0.1:3000/Modulo_4/portafolio/index.html
 Debe quedar:
 
 http://localho
+
+En el footer se encuentra botón de acceso a panel de administración:
+Clave de acceso : 12345
