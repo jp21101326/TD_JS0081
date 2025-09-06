@@ -5,7 +5,8 @@ Este portafolio corresponde al “Módulo 5: Fundamentos de bases de datos relac
 y consulta de bases de datos relacionales en PostgreSQL.
 
 ## Punto 1: Fundamentos de Bases de Datos Relacionales
-- Rol: Una base de datos relacional organiza la información en tablas relacionadas entre sí, garantizando integridad, consistencia y acceso
+- Rol: Una base de datos relacional organiza la información en tablas relacionadas entre sí, garantizando
+  integridad, consistencia y acceso
   seguro a los datos.
 - Componentes básicos:
     Tabla: estructura que agrupa datos en filas y columnas.
@@ -13,7 +14,8 @@ y consulta de bases de datos relacionales en PostgreSQL.
     Campo: columna que define una propiedad (ejemplo: nombre, fecha).
     Clave primaria: identifica de manera única a cada registro.
     Clave foránea: crea relaciones entre tablas.
-- Gestión: los datos se almacenan en tablas, se relacionan mediante claves, y se gestionan con instrucciones SQL (DDL, DML, SELECT).
+- Gestión: los datos se almacenan en tablas, se relacionan mediante claves, y se gestionan con instrucciones 
+  SQL (DDL, DML, SELECT).
 
 ## Punto 2: Modelo de Datos (ERD)
 - El sistema de gestión de contratos contempla entidades principales: clientes internos, proveedores, tipos de servicio, servicios,
