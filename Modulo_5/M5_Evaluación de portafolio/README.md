@@ -8,7 +8,7 @@ y consulta de bases de datos relacionales en PostgreSQL.
 - Rol: Una base de datos relacional organiza la información en tablas relacionadas entre sí, garantizando
   integridad, consistencia y acceso
   seguro a los datos.
-- Componentes básicos:
+- Componentes básicos:  
     Tabla: estructura que agrupa datos en filas y columnas.  
     Registro: fila que representa una instancia de dato.  
     Campo: columna que define una propiedad (ejemplo: nombre, fecha).  
@@ -50,8 +50,13 @@ y consulta de bases de datos relacionales en PostgreSQL.
 ## Otros ejemplos ejecutados:
 1. Obtener contratos vigentes de TI: CALL sp_contratos_area(2);
 2. Total pagado de un contrato: SELECT fn_total_pagado_contrato(1);
-3. Listado de contratos con pagos y facturas: SELECT c.id_contrato AS contrato, ci.nombre AS cliente, p.nombre AS proveedor, f.numero_factura,
-   pc.monto_pagado FROM contrato c JOIN cliente_interno ci ON ci.id_cliente = c.id_cliente JOIN proveedor p ON p.id_proveedor = c.id_proveedor JOIN pago_contrato pc ON pc.id_contrato = c.id_contrato JOIN factura f ON f.id_pago = pc.id_pago;
+3. Listado de contratos con pagos y facturas:  
+     SELECT c.id_contrato AS contrato, ci.nombre AS cliente, p.nombre AS proveedor, f.numero_factura, pc.monto_pagado   
+          FROM contrato c   
+          JOIN cliente_interno ci ON ci.id_cliente = c.id_cliente   
+          JOIN proveedor p ON p.id_proveedor = c.id_proveedor  
+          JOIN pago_contrato pc ON pc.id_contrato = c.id_contrato   
+          JOIN factura f ON f.id_pago = pc.id_pago;
 
 - Esto demuestra integridad referencial, relaciones entre tablas permitiendo con ello lo siguiente:  
     Evitar duplicidad de información.   
@@ -66,23 +71,23 @@ eficiente, adaptándose a las necesidades de la organización y facilitando la g
 
 M5_Evaluación de portafolio/  
 │── Definición de Tablas (DDL)/  
-│   └── 01_ddl.sql          # Definición de tablas  
+│   └── 01_ddl.sql           
 │     
 │── Modelo de Datos (ERD)/  
 │   └── ERD GestionContratos.png  
 │  
 │── Definición de Tablas (DDL)/  
-│   └── 02_dml.sql          # Inserción de datos de ejemplo  
+│   └── 02_dml.sql         
 │   
 │── Consultas SQL - Funciones y Procedimientos/  
-│   └── 03_queries.sql      # Consultas SQL  
+│   └── 03_queries.sql      
 │  
-└── README.md               # Documentación  
+└── README.md               
 
 ## Cómo ejecutar
 
 1. Crear la base de datos: CREATE DATABASE GestionCcontratos;
-2. Conectarse a la base de datos: \c GestionCcontratos  (coodigo solo psql, se debe conectar de forma manual).
+2. Conectarse a la base de datos: \c GestionCcontratos  (codigo solo psql, se debe conectar de forma manual).
 3. Crear Tablas      : 01_ddl.sql
 4. Insertar los datos: 02_dml.sql
 5. Realizar consultas: 03_queries.sql
