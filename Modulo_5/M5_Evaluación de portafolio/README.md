@@ -18,13 +18,14 @@ y consulta de bases de datos relacionales en PostgreSQL.
   SQL (DDL, DML, SELECT).
 
 ## Punto 2: Modelo de Datos (ERD)
-- El sistema de gestión de contratos contempla entidades principales: clientes internos, proveedores, tipos de servicio, servicios,
-  responsable de contrato, renovaciones y facturas. Estas se relacionan mediante claves foráneas, siguiendo un modelo entidad-relación normalizado.
+- El sistema de gestión de contratos contempla entidades principales: clientes internos, proveedores, tipos   
+  de servicio, servicios, responsable de contrato, renovaciones y facturas. Estas se relacionan mediante   
+  claves foráneas, siguiendo un modelo entidad-relación normalizado.  
 - Archivo relacionado: ERD GestionContratos.png
 
 ## Punto 3: Definición de Tablas (DDL)
-- Se crearon las tablas mediante sentencias DDL, asegurando la definición de claves primarias y foráneas. Ejemplo: la tabla CONTRATO tiene 
-  PK en 'id' y FK hacia CLIENTE_INTERNO, PROVEEDOR, SERVICIO y RESPONSABLE_CONTRATO.
+- Se crearon las tablas mediante sentencias DDL, asegurando la definición de claves primarias y foráneas.  
+  Ejemplo: la tabla CONTRATO tiene PK en 'id' y FK hacia CLIENTE_INTERNO, PROVEEDOR, SERVICIO y RESPONSABLE_CONTRATO.  
 - Archivo relacionado: 01_ddl.sql
 
 ## Punto 4: Manipulación de Datos (DML)
@@ -32,14 +33,14 @@ y consulta de bases de datos relacionales en PostgreSQL.
 - Archivo relacionado: 02_dml.sql
 
 ## Punto 5: Consultas SQL, Funciones y Procedimientos
-- Se realizaron consultas SQL para obtener información de:
-    Listado de contratos vigentes.
-    Pagos asociados a un contrato.
-    Totales contratados por proveedor.
-    Contratos vigentes por área.
-    Se incluyen funciones y procedimientos:
-    fn_total_pagado_contrato(contrato_id INT) -> devuelve el total pagado de un contrato.
-    sp_contratos_area(area_id INT) -> lista contratos vigentes de un área específica.
+- Se realizaron consultas SQL para obtener información de:  
+    Listado de contratos vigentes.  
+    Pagos asociados a un contrato.  
+    Totales contratados por proveedor.  
+    Contratos vigentes por área.  
+    Se incluyen funciones y procedimientos:  
+       fn_total_pagado_contrato(contrato_id INT) -> devuelve el total pagado de un contrato.  
+       sp_contratos_area(area_id INT) -> lista contratos vigentes de un área específica.  
 - Archivo relacionado: 03_queries.sql
 
 ## Evidencia Práctica
@@ -52,31 +53,31 @@ y consulta de bases de datos relacionales en PostgreSQL.
 3. Listado de contratos con pagos y facturas: SELECT c.id_contrato AS contrato, ci.nombre AS cliente, p.nombre AS proveedor, f.numero_factura,
    pc.monto_pagado FROM contrato c JOIN cliente_interno ci ON ci.id_cliente = c.id_cliente JOIN proveedor p ON p.id_proveedor = c.id_proveedor JOIN pago_contrato pc ON pc.id_contrato = c.id_contrato JOIN factura f ON f.id_pago = pc.id_pago;
 
-- Esto demuestra integridad referencial, relaciones entre tablas permitiendo con ello lo siguiente:
-    Evitar duplicidad de información.
-    Mantener consistencia en los datos.
+- Esto demuestra integridad referencial, relaciones entre tablas permitiendo con ello lo siguiente:  
+    Evitar duplicidad de información.   
+    Mantener consistencia en los datos.  
     Realizar consultas complejas que unan información de diferentes tablas (por ejemplo, “todos los pedidos de un cliente con sus productos
-     y cantidades”).
-- En resumen, las bases de datos relacionales permiten organizar, relacionar y consultar datos de manera eficiente, adaptándose a las 
-  necesidades de la organización y facilitando la gestión de información confiable.
+     y cantidades”).  
+- En resumen, las bases de datos relacionales permiten organizar, relacionar y consultar datos de manera   
+eficiente, adaptándose a las necesidades de la organización y facilitando la gestión de información confiable.
 
 
 ## Estructura del repositorio
 
-M5_Evaluación de portafolio/
-│── Definición de Tablas (DDL)/
-│   └── 01_ddl.sql          # Definición de tablas
+M5_Evaluación de portafolio/  
+│── Definición de Tablas (DDL)/  
+│   └── 01_ddl.sql          # Definición de tablas  
+│     
+│── Modelo de Datos (ERD)/  
+│   └── ERD GestionContratos.png  
+│  
+│── Definición de Tablas (DDL)/  
+│   └── 02_dml.sql          # Inserción de datos de ejemplo  
 │   
-│── Modelo de Datos (ERD)/
-│   └── ERD GestionContratos.png
-│
-│── Definición de Tablas (DDL)/
-│   └── 02_dml.sql          # Inserción de datos de ejemplo
-│ 
-│── Consultas SQL - Funciones y Procedimientos/
-│   └── 03_queries.sql      # Consultas SQL
-│
-└── README.md               # Documentación
+│── Consultas SQL - Funciones y Procedimientos/  
+│   └── 03_queries.sql      # Consultas SQL  
+│  
+└── README.md               # Documentación  
 
 ## Cómo ejecutar
 
