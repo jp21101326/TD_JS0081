@@ -9,11 +9,11 @@ y consulta de bases de datos relacionales en PostgreSQL.
   integridad, consistencia y acceso
   seguro a los datos.
 - Componentes básicos:
-    Tabla: estructura que agrupa datos en filas y columnas.
-    Registro: fila que representa una instancia de dato.
-    Campo: columna que define una propiedad (ejemplo: nombre, fecha).
-    Clave primaria: identifica de manera única a cada registro.
-    Clave foránea: crea relaciones entre tablas.
+    Tabla: estructura que agrupa datos en filas y columnas.  
+    Registro: fila que representa una instancia de dato.  
+    Campo: columna que define una propiedad (ejemplo: nombre, fecha).  
+    Clave primaria: identifica de manera única a cada registro.  
+    Clave foránea: crea relaciones entre tablas.  
 - Gestión: los datos se almacenan en tablas, se relacionan mediante claves, y se gestionan con instrucciones 
   SQL (DDL, DML, SELECT).
 
