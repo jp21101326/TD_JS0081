@@ -1,0 +1,60 @@
+
+<section class="hero-section text-center py-5 mb-5" style="background: linear-gradient(135deg, #d5d8db 0%, #495057 100%); color: white; border-radius: 10px;">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-white mb-4">Hola, soy {{mayusculas mi_nombre}}</h1>
+                <p class="lead text-white mb-4">{{descripcion}}</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="/about" class="btn btn-light btn-lg">Conoce más de mí</a>
+                    <a href="/projects" class="btn btn-outline-light btn-lg">Ver proyectos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="fw-bold">Proyectos Destacados</h2>
+                <p class="text-muted">Algunos de mis trabajos más recientes</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            {{#each proyectos}}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card project-card h-100">
+                                {{#if this.image}}
+                                <!-- <div class="img-wrapper"> -->
+                                    <img src="{{this.image}}" alt="{{this.nombre}}" class="card-img-top product-image" onerror="this.src='/img/placeholder.jpg'">
+                                <!-- </div> -->
+                                {{/if}}
+                                <div class="card-body d-flex flex-column text-justify">
+                                    <h5 class="card-title text-primary">
+                                        <strong> {{this.nombre}}</strong> 
+                                    </h5>
+                                    <p class="card-text text-muted">{{this.descripcion}}</p>
+                                    <div class="mb-3">
+                                        <small class="badge bg-secondary me-1" style="font-size: 1rem; padding: 0.6rem 1rem;">{{this.tecnologias}}</small>
+                                    </div>
+                                    <div class="mb-3 d-flex justify-content-end">
+                                        <a href="/projects#proyecto-{{this.id}}" class="btn btn-outline-primary btn-sm">
+                                            <i class="bi bi-eye me-1"></i>Ver más
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            {{/each}}
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <a href="/projects" class="btn btn-outline-primary btn-lg">Ver todos los proyectos</a>
+            </div>
+        </div>
+    </div>
+</section>
