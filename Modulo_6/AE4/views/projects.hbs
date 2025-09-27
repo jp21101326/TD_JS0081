@@ -30,32 +30,32 @@
             </div>
 
             <!-- Modal -->
-<div class="modal fade" id="modal-{{this.id}}" tabindex="-1" aria-labelledby="modalLabel-{{this.id}}" aria-hidden="true"> 
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      
-      <!-- Cabecera elegante -->
-      <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="modalLabel-{{this.id}}">{{this.nombre}}</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      
-      <!-- Cuerpo del modal -->
-      <div class="modal-body text-center">
-        {{#if this.image}}
-        <img src="{{this.image}}" alt="{{this.nombre}}" class="img-fluid w-100 d-block mx-auto mb-3" style="height:450px; object-fit:cover;" onerror="this.src='/img/placeholder.jpg'">
-        {{/if}}
-        <p class="text-start custom-font">{{this.descripcion}}</p>
-        <p class="text-start custom-font"><strong>Tecnologías utilizadas:</strong> {{this.tecnologias}}</p>
-      </div>
-      
-      <!-- Pie del modal -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
+            <div class="modal fade" id="modal-{{this.id}}" tabindex="-1" aria-labelledby="modalLabel-{{this.id}}" aria-hidden="true"> 
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  
+                  <!-- Cabecera elegante -->
+                  <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalLabel-{{this.id}}">{{this.nombre}}</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                  </div>
+                  
+                  <!-- Cuerpo del modal -->
+                  <div class="modal-body text-center">
+                    {{#if this.image}}
+                    <img src="{{this.image}}" alt="{{this.nombre}}" class="img-fluid w-100 d-block mx-auto mb-3" style="height:450px; object-fit:cover;" onerror="this.src='/img/placeholder.jpg'">
+                    {{/if}}
+                    <p class="text-start custom-font">{{this.descripcion}}</p>
+                    <p class="text-start custom-font"><strong>Tecnologías utilizadas:</strong> {{this.tecnologias}}</p>
+                  </div>
+                  
+                  <!-- Pie del modal -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
             {{/each}}
