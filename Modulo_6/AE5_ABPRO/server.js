@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const port = 8020;
 
-app.use(express.static("public"));
+//app.use(express.static("public")); // Servir archivos estáticos desde la carpeta "public"
 // Funciones para manipular productos
 const {
   readProducts,
