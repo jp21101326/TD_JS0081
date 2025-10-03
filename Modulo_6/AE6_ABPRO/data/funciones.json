@@ -1,0 +1,29 @@
+{
+  "peliculas": [
+    {
+      "titulo": "Interestelar",
+      "horarios": [
+        "16:00",
+        "19:00",
+        "22:00"
+      ],
+      "precio": 5000
+    },
+    {
+      "titulo": "Dune",
+      "horarios": [
+        "18:30",
+        "21:30"
+      ],
+      "precio": 6000
+    },
+    {
+      "titulo": "El viaje de Chihiro",
+      "horarios": [
+        "15:45",
+        "20:15"
+      ],
+      "precio": 4500
+    }
+  ]
+}
