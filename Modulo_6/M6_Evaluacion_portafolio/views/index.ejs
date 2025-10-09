@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tienda</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">🛒 Tienda</a>
+      <div>
+        <a class="btn btn-light" href="/productos">Ver productos</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container text-center py-5">
+    <h1 class="display-4 fw-bold text-primary"><%= titulo %></h1>
+    <p class="lead text-muted">Bienvenido a la tienda en línea con Node.js + Express.</p>
+    <a href="/productos" class="btn btn-success btn-lg mt-3">Ir a productos</a>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

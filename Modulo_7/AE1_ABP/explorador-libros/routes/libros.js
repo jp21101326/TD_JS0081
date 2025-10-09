@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// BONUS: buscar por autor o título (opcional)
+// buscar por autor o título 
 router.get('/buscar', async (req, res) => {
   const { q } = req.query;
   try {

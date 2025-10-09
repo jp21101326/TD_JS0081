@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/header.ejs") %>
+
+    <main>
+      <section class="hero">
+        <h1><%= titulo %></h1>
+        
+        <div class="features">
+           <div class="feature-card text-center">
+            <i class="bi-card-list fs-1 text-success"></i>
+            <h3>Ver Productos</h3>
+            <p>Consulta todos los productos disponibles</p>
+            <a href="/productos" class="btn btn-primary">Ver Productos</a>
+          </div> 
+
+           <div class="feature-card text-center">
+            <i class="bi-box-arrow-in-down fs-1 text-success"></i>
+            <h3>Agregar Producto</h3>
+            <p>Nuevos productos con nombre, descripción y precio</p>
+            <a href="/productos/agregar" class="btn btn-secondary">Agregar Nuevo</a>
+          </div>         
+          
+          <div class="feature-card text-center">
+            <i class="bi bi-zoom-in fs-1 text-info"></i>
+            <h3>API REST</h3>
+            <p>Visualiza los productos mediante nuestra API JSON</p>
+            <a href="/api/productos" class="btn btn-info">Ver</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="info">
+        <h2>Características del Sistema</h2>
+        <ul>
+          <li>✅ Gestión completa de productos (CRUD)</li>
+          <li>✅ Persistencia de datos en archivo JSON</li>
+          <li>✅ Interfaz web amigable con EJS</li>
+          <li>✅ API REST para integración</li>
+          <li>✅ Manejo de errores robusto</li>
+          <li>✅ Configuración por entornos (dev, test, prod)</li>
+        </ul>
+      </section>
+    </main>
+
+
+   <%- include("partials/footer.ejs") %>
+</body>
+</html>

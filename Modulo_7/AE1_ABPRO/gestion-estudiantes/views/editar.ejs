@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+  <%- include('partials/header', { activePage }) %>
+
+  <main class="container py-4 flex-grow-1">
+    <h2 class="text-primary mb-3">Editar Estudiante</h2>
+    <form action="/estudiantes/editar/<%= estudiante.id %>" method="POST">
+      <div class="mb-3">
+        <label>Nombre</label>
+        <input type="text" name="nombre" value="<%= estudiante.nombre %>" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>Edad</label>
+        <input type="number" name="edad" value="<%= estudiante.edad %>" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>Correo</label>
+        <input type="email" name="correo" value="<%= estudiante.correo %>" class="form-control" required>
+      </div>
+      <button class="btn btn-primary">Actualizar</button>
+      <a href="/estudiantes" class="btn btn-secondary">Volver</a>
+    </form>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

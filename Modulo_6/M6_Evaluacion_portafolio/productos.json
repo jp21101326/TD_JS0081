@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nombre": "CUADERNO",
+    "descripcion": "100 HOJAS",
+    "precio": 7000
+  },
+  {
+    "id": 2,
+    "nombre": "LAPIZ",
+    "descripcion": "BIP",
+    "precio": 1200
+  },
+  {
+    "id": 3,
+    "nombre": "asdasd",
+    "descripcion": "asdasdas",
+    "precio": 33354
+  },
+  {
+    "id": 4,
+    "nombre": "q234234",
+    "descripcion": "6464",
+    "precio": 576657
+  },
+  {
+    "id": 5,
+    "nombre": "Notebook HP G10",
+    "descripcion": "Notebook HP G10",
+    "precio": 289999
+  },
+  {
+    "id": 6,
+    "nombre": "Notebook HP G10",
+    "descripcion": "zczcscasd",
+    "precio": 234567
+  },
+  {
+    "id": 7,
+    "nombre": "Mouse Logitech MX Master 3",
+    "descripcion": "arqwwqrqw",
+    "precio": 66666
+  }
+]

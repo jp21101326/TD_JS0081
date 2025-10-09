@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+  <%- include('partials/header', { activePage }) %>
+
+  <main class="container py-4 flex-grow-1">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="text-primary"><%= titulo %></h2>
+      <a href="/estudiantes/nuevo" class="btn btn-success">+ Nuevo Estudiante</a>
+    </div>
+
+    <form action="/estudiantes/buscar" method="get" class="mb-3 d-flex gap-2">
+      <input type="text" name="q" placeholder="Buscar estudiante..." class="form-control" required>
+      <button type="submit" class="btn btn-outline-primary">Buscar</button>
+    </form>
+
+    <table class="table table-hover table-bordered shadow-sm">
+      <thead class="table-primary">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Correo</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (estudiantes.length > 0) { %>
+          <% estudiantes.forEach(est => { %>
+            <tr>
+              <td class="text-center"><%= est.id %></td>
+              <td><%= est.nombre %></td>
+              <td class="text-center"><%= est.edad %></td>
+              <td><%= est.correo %></td>
+              <td><%= new Date(est.fecha_registro).toLocaleDateString() %></td>
+              <td class="text-center">
+                <a href="/estudiantes/editar/<%= est.id %>" class="btn btn-sm btn-warning">Editar</a>
+                <a href="/estudiantes/eliminar/<%= est.id %>" class="btn btn-sm btn-danger"
+                   onclick="return confirm('¿Eliminar a <%= est.nombre %>?');">Eliminar</a>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr><td colspan="6" class="text-center text-muted">No hay estudiantes registrados</td></tr>
+        <% } %>
+      </tbody>
+    </table>
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <script>
+    const msg = new URLSearchParams(window.location.search).get('msg');
+    if (msg) {
+      let title = '';
+      if (msg === 'agregado') title = 'Estudiante agregado correctamente';
+      else if (msg === 'editado') title = 'Estudiante actualizado';
+      else if (msg === 'eliminado') title = 'Estudiante eliminado';
+
+      Swal.fire({
+        icon: 'success',
+        title,
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+      setTimeout(() => window.location.href = '/estudiantes', 1500);
+    }
+  </script>
+</body>
+</html>
