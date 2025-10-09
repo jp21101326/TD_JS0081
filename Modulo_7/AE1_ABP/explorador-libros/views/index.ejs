@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+  <title>Explorador de Libros</title>
+</head>
+<body class="bg-light">
+
+  <div class="container py-5">
+    <h1 class="mb-4 text-center text-primary">📚 Explorador de Libros</h1>
+
+    <table class="table table-hover table-bordered shadow-sm">
+      <thead class="table-primary">
+        <tr>
+          <th class="text-center">ID</th>
+          <th class="text-center">Título</th>
+          <th class="text-center">Autor</th>
+          <th class="text-center">Año</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (libros.length > 0) { %>
+          <% libros.forEach(libro => { %>
+            <tr>
+              <td class="text-center"><%= libro.id %></td>
+              <td><%= libro.titulo %></td>
+              <td><%= libro.autor %></td>
+              <td class="text-center"><%= libro.anio %></td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="4" class="text-center text-muted">No hay libros registrados</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <div class="text-center mt-4">
+      <a href="/libros" class="btn btn-outline-primary">Ver en JSON</a>
+    </div>
+  </div>
+
+</body>
+</html>
+
