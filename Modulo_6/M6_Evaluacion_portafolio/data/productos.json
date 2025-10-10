@@ -6,7 +6,7 @@
     "precio": 699.99,
     "fecha_creacion": "2025-10-03T12:00:00.000Z",
     "fecha_actualizacion": "2025-10-04T02:39:14.243Z",
-    "ultimaEdicion": "2025-10-09T01:29:35.448Z"
+    "ultimaEdicion": "2025-10-08"
   },
   {
     "id": 2,
@@ -14,7 +14,7 @@
     "descripcion": "Mouse inalámbrico ergonómico con sensor de alta precisión, batería recargable y múltiples botones programables.",
     "precio": 89.99,
     "fecha_creacion": "2025-10-03T12:15:00.000Z",
-    "ultimaEdicion": "2025-10-08T01:26:33.594Z"
+    "ultimaEdicion": "2025-10-06"
   },
   {
     "id": 3,
@@ -22,6 +22,14 @@
     "descripcion": "Teclado mecánico inalámbrico con switches Gateron, retroiluminación RGB y compatible con Windows y Mac.",
     "precio": 119.99,
     "fecha_creacion": "2025-10-03T12:30:00.000Z",
-    "ultimaEdicion": "2025-10-08T01:26:30.653Z"
+    "ultimaEdicion": "2025-10-07"
+  },
+  {
+    "id": 4,
+    "nombre": "Notebook HP G10",
+    "descripcion": "Notebook HP G10",
+    "precio": 299000,
+    "fecha_creacion": "2025-10-04T01:07:09.721Z",
+    "ultimaEdicion": "2025-10-07"
   }
 ]
