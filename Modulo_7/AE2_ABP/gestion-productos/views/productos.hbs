@@ -1,0 +1,41 @@
+
+<main class="container mt-4 flex-grow-1">
+
+<h1 class="text-center text-primary mb-4">Lista de Productos</h1>
+
+<div class="d-flex justify-content-end mb-3">
+    <a href="/productos/consultar-cursor" class="btn btn-info me-2">Ver con Cursor</a>
+</div>
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-primary text-center">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th class="text-end">Precio</th>
+            <th>Categoría</th>
+            <th class="text-end">Stock</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each productos}}
+        <tr>
+            <td class="text-center">{{this.id}}</td>
+            <td>{{this.nombre}}</td>
+            <td class="text-end">${{this.precio}}</td>
+            <td>{{this.categoria}}</td>
+            <td class="text-end">{{this.stock}}</td>
+            <td class="text-center">
+                <a href="/productos/{{this.id}}" class="btn btn-info btn-sm">Ver</a>
+                <a href="/productos/eliminar/{{this.id}}" class="btn btn-danger btn-sm"
+                    onclick="return confirm('¿Seguro que deseas eliminar este producto?');">
+                    Eliminar
+                </a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+</main>
