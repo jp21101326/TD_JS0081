@@ -1,37 +1,37 @@
-# 📚 AE5 - Clases en JavaScript y ORM Sequelize (Proyecto: Biblioteca)
+# AE5 - Clases en JavaScript y ORM Sequelize (Proyecto: Biblioteca)
 
-## 🎯 Propósito de la actividad
+## Propósito de la actividad
 El objetivo de esta actividad es aplicar los conceptos de **Programación Orientada a Objetos (POO)** en JavaScript mediante la creación de una clase, e implementar **Sequelize** como ORM para gestionar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre una base de datos **PostgreSQL**.
 
 ---
 
-## 🧩 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 AE5-LIBROS/
 │
 ├─ CLASES/
-│   └─ libro.js                # Clase Libro (POO en JavaScript)
+│   └─ libro.js               
 │
 ├─ CONFIG/
-│   └─ db.js                   # Configuración de conexión a PostgreSQL con Sequelize
+│   └─ db.js                   
 │
 ├─ MODELS/
-│   └─ libro.js                # Modelo Sequelize que representa la tabla 'Libros'
+│   └─ libro.js                
 │
 ├─ CONTROLLERS/
-│   └─ libro.controllers.js    # Controlador con funciones CRUD asíncronas
+│   └─ libro.controllers.js    
 │
-├─ .env                        # Variables de entorno para conexión a la base de datos
+├─ .env                        
 │
-├─ SERVER.JS                   # Archivo principal para ejecutar la app y probar CRUD
+├─ SERVER.JS                   
 │
-└─ README.md                   # Documentación del proyecto
+└─ README.md                   
 ```
 
 ---
 
-## ⚙️ Requisitos previos
+## Requisitos previos
 
 Asegúrate de tener instalado:
 
@@ -41,7 +41,7 @@ Asegúrate de tener instalado:
 
 ---
 
-## 🧱 Instalación del proyecto
+## Instalación del proyecto
 
 1. Clona o descarga este repositorio:
    ```bash
@@ -70,7 +70,7 @@ Asegúrate de tener instalado:
 
 ---
 
-## 🚀 Ejecución del proyecto
+## Ejecución del proyecto
 
 Ejecuta el servidor con:
 ```bash
@@ -79,16 +79,16 @@ node server.js
 
 Verás mensajes como:
 ```
-✅ Conexión a la base de datos PostgreSQL exitosa.
-📚 Todos los modelos fueron sincronizados correctamente.
-✅ Libro de prueba creado.
+- Conexión a la base de datos PostgreSQL exitosa.
+- Todos los modelos fueron sincronizados correctamente.
+- Libro de prueba creado.
 ```
 
 ---
 
-## 🧠 Descripción técnica
+## Descripción técnica
 
-### 🧩 Parte 1 – Clase en JavaScript
+### Parte 1 – Clase en JavaScript
 El archivo `CLASES/libro.js` define una clase **Libro** utilizando los principios de POO:
 - **Constructor**: inicializa los atributos `titulo`, `autor`, `anioPublicacion`, `isbn`.
 - **Getters y Setters**: controlan el acceso y validación de propiedades.
@@ -102,12 +102,12 @@ libro1.mostrarDetalles();
 
 ---
 
-### 🧠 Parte 2 – ORM Sequelize
+### Parte 2 – ORM Sequelize
 
-#### 🔹 Configuración
+#### Configuración
 El archivo `CONFIG/db.js` configura Sequelize para conectarse a PostgreSQL mediante variables de entorno.
 
-#### 🔹 Modelo
+#### Modelo
 `MODELS/libro.js` define el modelo Sequelize que representa la tabla `Libros` con columnas:
 - `id` (Primary Key)
 - `titulo`
@@ -115,7 +115,7 @@ El archivo `CONFIG/db.js` configura Sequelize para conectarse a PostgreSQL media
 - `anioPublicacion`
 - `isbn`
 
-#### 🔹 Controlador
+#### Controlador
 `CONTROLLERS/libro.controllers.js` implementa las funciones CRUD:
 - **createLibro()** → Crear un nuevo registro.
 - **getAllLibros()** → Leer todos los registros.
@@ -123,12 +123,12 @@ El archivo `CONFIG/db.js` configura Sequelize para conectarse a PostgreSQL media
 - **updateLibro()** → Actualizar un libro existente.
 - **deleteLibro()** → Eliminar un libro.
 
-#### 🔹 Ejecución
+#### Ejecución
 `SERVER.JS` sincroniza la base de datos y ejecuta pruebas automáticas de las funciones CRUD usando `async/await`.
 
 ---
 
-## 💾 Operaciones CRUD realizadas
+## Operaciones CRUD realizadas
 
 | Operación | Método | Descripción | Ejemplo |
 |------------|---------|-------------|----------|
@@ -140,7 +140,7 @@ El archivo `CONFIG/db.js` configura Sequelize para conectarse a PostgreSQL media
 
 ---
 
-## 🔐 Ventajas de usar un ORM (Sequelize)
+## Ventajas de usar un ORM (Sequelize)
 
 - **Abstracción del SQL:** No es necesario escribir consultas manuales.
 - **Seguridad:** Evita inyección SQL mediante consultas parametrizadas.
@@ -150,7 +150,7 @@ El archivo `CONFIG/db.js` configura Sequelize para conectarse a PostgreSQL media
 
 ---
 
-## 📚 Conclusión
+## Conclusión
 
 Este proyecto demuestra cómo:
 1. Definir y utilizar **clases en JavaScript**.
@@ -158,10 +158,6 @@ Este proyecto demuestra cómo:
 3. Implementar **CRUD asíncrono con manejo de errores**.
 4. Aplicar buenas prácticas de organización y separación por capas.
 
-> ✨ Desarrollado como ejercicio individual AE5 — “Clases en JavaScript y ORM Sequelize”.
+> Desarrollado como ejercicio individual AE5 — “Clases en JavaScript y ORM Sequelize”.
 
 ---
-
-## 👨‍💻 Autor
-**Juan P.**  
-*Desarrollador y estudiante del curso BOTIC-SOFOF-24-28-13-0081*
