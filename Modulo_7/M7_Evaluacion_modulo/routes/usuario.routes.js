@@ -16,15 +16,12 @@ router.get('/:id', async (req, res) => res.json(await obtenerUsuarioPorId(req.pa
 router.put('/:id', async (req, res) => res.json(await actualizarUsuario(req.params.id, req.body)));
 router.delete('/:id', async (req, res) => res.json({ deleted: await eliminarUsuario(req.params.id) }));
 
-// NUEVAS rutas N:M
 router.post('/:id/roles', async (req, res) => {
-    // req.body.roles = [1,2] ids de roles a asignar
     const result = await agregarRolesAUsuario(req.params.id, req.body.roles);
     res.json(result);
 });
 
 router.delete('/:id/roles', async (req, res) => {
-    // req.body.roles = [1,2] ids de roles a quitar
     const result = await quitarRolesDeUsuario(req.params.id, req.body.roles);
     res.json(result);
 });

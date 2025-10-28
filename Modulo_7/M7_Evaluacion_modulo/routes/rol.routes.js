@@ -8,4 +8,5 @@ router.get('/:id', async (req, res) => res.json(await obtenerRolPorId(req.params
 router.put('/:id', async (req, res) => res.json(await actualizarRol(req.params.id, req.body)));
 router.delete('/:id', async (req, res) => res.json({ deleted: await eliminarRol(req.params.id) }));
 
+
 module.exports = router;

@@ -27,16 +27,14 @@ const eliminarUsuario = async (id) => {
     return await Usuario.destroy({ where: { id } });
 };
 
-// NUEVO: agregar roles a un usuario
 const agregarRolesAUsuario = async (usuarioId, rolesIds) => {
     const usuario = await Usuario.findByPk(usuarioId);
     if (!usuario) return null;
 
-    await usuario.addRoles(rolesIds); // Puede ser un solo id o un array de ids
+    await usuario.addRoles(rolesIds); 
     return await Usuario.findByPk(usuarioId, { include: 'roles' });
 };
 
-// NUEVO: quitar roles a un usuario
 const quitarRolesDeUsuario = async (usuarioId, rolesIds) => {
     const usuario = await Usuario.findByPk(usuarioId);
     if (!usuario) return null;

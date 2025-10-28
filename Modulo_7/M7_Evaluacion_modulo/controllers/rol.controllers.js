@@ -29,7 +29,7 @@ const eliminarRol = async (id) => {
         const rol = await Rol.findByPk(id, { transaction: t });
         if (!rol) throw new Error('Rol no encontrado');
 
-        await rol.setUsuarios([], { transaction: t }); // desasignar usuarios
+        await rol.setUsuarios([], { transaction: t }); 
         await Rol.destroy({ where: { id }, transaction: t });
         await t.commit();
         return true;
@@ -40,4 +40,10 @@ const eliminarRol = async (id) => {
     }
 };
 
-module.exports = { crearRol, obtenerRoles, obtenerRolPorId, actualizarRol, eliminarRol };
+module.exports = { 
+    crearRol, 
+    obtenerRoles, 
+    obtenerRolPorId, 
+    actualizarRol, 
+    eliminarRol 
+};
