@@ -43,6 +43,7 @@ const quitarRolesDeUsuario = async (usuarioId, rolesIds) => {
     return await Usuario.findByPk(usuarioId, { include: 'roles' });
 };
 
+
 module.exports = { 
     crearUsuario, 
     obtenerUsuarios, 

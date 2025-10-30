@@ -24,21 +24,20 @@ const actualizarRol = async (id, data) => {
 };
 
 const eliminarRol = async (id) => {
-    const t = await sequelize.transaction();
     try {
-        const rol = await Rol.findByPk(id, { transaction: t });
+        const rol = await Rol.findByPk(id);
         if (!rol) throw new Error('Rol no encontrado');
+  
+        await rol.setUsuarios([]);
+        await Rol.destroy({ where: { id } });
 
-        await rol.setUsuarios([], { transaction: t }); 
-        await Rol.destroy({ where: { id }, transaction: t });
-        await t.commit();
         return true;
     } catch (error) {
-        await t.rollback();
         console.error(error);
         return false;
     }
 };
+
 
 module.exports = { 
     crearRol, 

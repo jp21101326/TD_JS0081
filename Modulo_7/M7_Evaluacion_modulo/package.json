@@ -1,11 +1,12 @@
 {
-  "name": "m7_ev_mod_v4",
+  "name": "m7_evaluacion_modulo",
   "version": "1.0.0",
-  "description": "Este proyecto corresponde a la **evaluación final del Módulo 7** del Bootcamp de Desarrollo Back-End con Node.js.  \r Su objetivo es implementar una **API RESTful** que gestione usuarios y roles, utilizando **Express**, **Sequelize** y **PostgreSQL**, demostrando las competencias aprendidas sobre rutas, modelos, controladores, seeders y relaciones entre tablas.",
+  "description": "Este proyecto implementa una **API REST con Node.js, Express y Sequelize** para la gestión de **usuarios y roles**, incluyendo operaciones CRUD completas, asignación de roles a usuarios y validaciones con middlewares.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

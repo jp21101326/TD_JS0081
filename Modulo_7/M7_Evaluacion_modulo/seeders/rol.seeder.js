@@ -8,6 +8,4 @@ const createRolSeeds = async () => {
     ]);
 };
 
-
 module.exports = createRolSeeds;
-

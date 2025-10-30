@@ -2,7 +2,7 @@ const { Usuario, Rol } = require('../models/tables');
 
 const createUsuarioSeeds = async () => {
 
-    const juan = await Usuario.create({ nombre: 'Juan Pérez', correo: 'juan@mail.com', contraseña: '123456' });
+    const juan = await Usuario.create({ nombre: 'Juan López', correo: 'juan@mail.com', contraseña: '123456' });
     const maria = await Usuario.create({ nombre: 'María López', correo: 'maria@mail.com', contraseña: '123456' });
 
     // Obtener roles
@@ -10,8 +10,9 @@ const createUsuarioSeeds = async () => {
     const editor = await Rol.findOne({ where: { nombre: 'Editor' } });
 
     // Asignar roles a usuarios
-    await juan.addRoles([admin.id, editor.id]); // Juan tiene Admin y Editor
-    await maria.addRole(editor.id);             // María solo Editor
+    await juan.addRoles([admin.id, editor.id]); 
+    await maria.addRole(editor.id);             
 };
+
 
 module.exports = createUsuarioSeeds;
