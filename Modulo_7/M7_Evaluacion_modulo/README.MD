@@ -13,8 +13,8 @@ El objetivo del proyecto es demostrar el uso de **Sequelize** como ORM para cone
 ## Estructura del Proyecto
 
 ```
-usuarios-roles/
-├─ src/
+
+├─ usuarios-roles
 │  ├─ config/
 │  │  └─ db.js
 │  ├─ models/
