@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Usuarios y Pedidos</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h1 class="mb-4">Gestión de Usuarios y Pedidos</h1>
+
+  <!-- Crear Usuario -->
+  <div class="card mb-4">
+    <div class="card-header">Crear Usuario</div>
+    <div class="card-body">
+      <form id="crearUsuarioForm">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear Usuario</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Obtener Usuarios -->
+  <div class="card mb-4">
+    <div class="card-header">Obtener Usuarios</div>
+    <div class="card-body">
+      <button class="btn btn-success mb-3" id="obtenerUsuariosBtn">Mostrar Usuarios</button>
+      <pre id="usuariosList"></pre>
+    </div>
+  </div>
+
+  <!-- Actualizar Usuario -->
+  <div class="card mb-4">
+    <div class="card-header">Actualizar Usuario</div>
+    <div class="card-body">
+      <form id="actualizarUsuarioForm">
+        <div class="mb-3">
+          <label for="updateId" class="form-label">ID Usuario</label>
+          <input type="number" class="form-control" id="updateId" required>
+        </div>
+        <div class="mb-3">
+          <label for="updateNombre" class="form-label">Nuevo Nombre</label>
+          <input type="text" class="form-control" id="updateNombre">
+        </div>
+        <div class="mb-3">
+          <label for="updateEmail" class="form-label">Nuevo Email</label>
+          <input type="email" class="form-control" id="updateEmail">
+        </div>
+        <button type="submit" class="btn btn-warning">Actualizar Usuario</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Eliminar Usuario -->
+  <div class="card mb-4">
+    <div class="card-header">Eliminar Usuario</div>
+    <div class="card-body">
+      <form id="eliminarUsuarioForm">
+        <div class="mb-3">
+          <label for="deleteId" class="form-label">ID Usuario</label>
+          <input type="number" class="form-control" id="deleteId" required>
+        </div>
+        <button type="submit" class="btn btn-danger">Eliminar Usuario</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Crear Pedido -->
+  <div class="card mb-4">
+    <div class="card-header">Crear Pedido</div>
+    <div class="card-body">
+      <form id="crearPedidoForm">
+        <div class="mb-3">
+          <label for="pedidoUsuarioId" class="form-label">ID Usuario</label>
+          <input type="number" class="form-control" id="pedidoUsuarioId" required>
+        </div>
+        <div class="mb-3">
+          <label for="producto" class="form-label">Producto</label>
+          <input type="text" class="form-control" id="producto" required>
+        </div>
+        <div class="mb-3">
+          <label for="cantidad" class="form-label">Cantidad</label>
+          <input type="number" class="form-control" id="cantidad" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear Pedido</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Obtener Pedidos de Usuario -->
+  <div class="card mb-4">
+    <div class="card-header">Obtener Pedidos por Usuario</div>
+    <div class="card-body">
+      <form id="obtenerPedidosForm">
+        <div class="mb-3">
+          <label for="pedidosUsuarioId" class="form-label">ID Usuario</label>
+          <input type="number" class="form-control" id="pedidosUsuarioId" required>
+        </div>
+        <button type="submit" class="btn btn-success">Mostrar Pedidos</button>
+      </form>
+      <pre id="pedidosList"></pre>
+    </div>
+  </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const baseUrl = "http://localhost:3000"; // Cambia si tu servidor usa otro puerto o prefijo
+
+// Crear Usuario
+document.getElementById("crearUsuarioForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const nombre = document.getElementById("nombre").value;
+  const email = document.getElementById("email").value;
+  const contraseña = document.getElementById("password").value;
+  const res = await fetch(`${baseUrl}/usuarios`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nombre, email, contraseña })
+  });
+  const data = await res.json();
+  alert("Usuario creado: " + JSON.stringify(data));
+});
+
+// Obtener Usuarios
+document.getElementById("obtenerUsuariosBtn").addEventListener("click", async () => {
+  const res = await fetch(`${baseUrl}/usuarios`);
+  const data = await res.json();
+  document.getElementById("usuariosList").textContent = JSON.stringify(data, null, 2);
+});
+
+// Actualizar Usuario
+document.getElementById("actualizarUsuarioForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const id = document.getElementById("updateId").value;
+  const nombre = document.getElementById("updateNombre").value;
+  const email = document.getElementById("updateEmail").value;
+  const res = await fetch(`${baseUrl}/usuarios/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nombre, email })
+  });
+  const data = await res.json();
+  alert("Usuario actualizado: " + JSON.stringify(data));
+});
+
+// Eliminar Usuario
+document.getElementById("eliminarUsuarioForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const id = document.getElementById("deleteId").value;
+  const res = await fetch(`${baseUrl}/usuarios/${id}`, { method: "DELETE" });
+  const data = await res.json();
+  alert("Usuario eliminado: " + JSON.stringify(data));
+});
+
+// Crear Pedido
+document.getElementById("crearPedidoForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const usuarioId = document.getElementById("pedidoUsuarioId").value;
+  const producto = document.getElementById("producto").value;
+  const cantidad = document.getElementById("cantidad").value;
+  const res = await fetch(`${baseUrl}/pedidos`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ usuarioId, producto, cantidad })
+  });
+  const data = await res.json();
+  alert("Pedido creado: " + JSON.stringify(data));
+});
+
+// Obtener Pedidos de Usuario
+document.getElementById("obtenerPedidosForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const id = document.getElementById("pedidosUsuarioId").value;
+  const res = await fetch(`${baseUrl}/usuarios/${id}`);
+  const data = await res.json();
+  document.getElementById("pedidosList").textContent = JSON.stringify(data, null, 2);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Mis Proyectos</h1>
+        </div>
+        
+        <div class="row g-4">
+            {{#each proyectos}}
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 shadow-sm project-card">
+                    {{#if this.image}}
+                     <!-- <div class="img-wrapper"> -->
+                        <img src="{{this.image}}" alt="{{this.nombre}}" class="card-img-top product-image" onerror="this.src='/img/placeholder.jpg'">
+                    <!-- </div> -->
+                    {{/if}}
+                    <div class="card-body">
+                        <h5 class="card-title text-primary"><strong>{{this.nombre}}</strong></h5>
+                        <p class="card-text text-muted custom-font" style="text-align: justify;">{{this.descripcion}}</p>
+                        <div class="mb-3">
+                            <small class="badge bg-success me-1 custom-font" style="font-size: 1rem; padding: 0.6rem 1rem;">{{this.tecnologias}}</small>
+                        </div>
+                        <!-- Botón para abrir modal -->
+                        <div class="mb-3 d-flex justify-content-end">
+                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-{{this.id}}">
+                                <i class="bi bi-eye me-1"></i>Ver más
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal-{{this.id}}" tabindex="-1" aria-labelledby="modalLabel-{{this.id}}" aria-hidden="true"> 
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  
+                  <!-- Cabecera elegante -->
+                  <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalLabel-{{this.id}}">{{this.nombre}}</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                  </div>
+                  
+                  <!-- Cuerpo del modal -->
+                  <div class="modal-body text-center">
+                    {{#if this.image}}
+                    <img src="{{this.image}}" alt="{{this.nombre}}" class="img-fluid w-100 d-block mx-auto mb-3" style="height:450px; object-fit:cover;" onerror="this.src='/img/placeholder.jpg'">
+                    {{/if}}
+                    <p class="text-start custom-font">{{this.descripcion}}</p>
+                    <p class="text-start custom-font"><strong>Tecnologías utilizadas:</strong> {{this.tecnologias}}</p>
+                  </div>
+                  
+                  <!-- Pie del modal -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            {{/each}}
+        </div>
+        
+    </div>
+</section>

@@ -1,0 +1,18 @@
+{
+  "name": "cine-cli",
+  "version": "1.0.0",
+  "description": "CLI para compra simulada de boletos de cine usando yargs y chalk",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+  "start": "node app.js",
+  "dev": "nodemon --exec node app.js --"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

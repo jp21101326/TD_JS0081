@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/header.ejs") %>
+
+    <main>
+      <section class="form-container">
+        <h1><%= titulo %></h1>
+       
+        <form method="POST" action="/productos/agregar" class="producto-form">
+          <div class="form-group">
+            <label for="nombre">Nombre del Producto *</label>
+            <input 
+              type="text" 
+              id="nombre" 
+              name="nombre" 
+              required 
+              placeholder="Ej: Laptop HP Pavilion"
+              maxlength="100">
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Descripción *</label>
+            <textarea 
+              id="descripcion" 
+              name="descripcion" 
+              required 
+              rows="5"
+              placeholder="Describe el producto, sus características principales, etc."
+              maxlength="500"></textarea>
+            <small>Máximo 500 caracteres</small>
+          </div>
+
+          <div class="form-group">
+            <label for="precio">Precio ($) *</label>
+            <input 
+              type="number" 
+              id="precio" 
+              name="precio" 
+              required 
+              step="0.01" 
+              min="0"
+              placeholder="0.00">
+            <small>Ingresa el precio sin símbolos, solo números</small>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Guardar Producto</button>
+            <a href="/productos" class="btn btn-secondary">Cancelar</a>
+          </div>
+        </form>
+
+      </section>
+    </main>
+
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

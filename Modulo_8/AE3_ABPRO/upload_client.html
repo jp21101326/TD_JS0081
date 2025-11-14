@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cliente de Upload - M8_AE3_ABPRO</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin: 20px; background:#f7fafc; color:#111827; }
+    h1 { font-size:1.5rem; margin-bottom:0.25rem; }
+    .card { background:white; border-radius:8px; padding:16px; box-shadow:0 2px 6px rgba(0,0,0,.08); margin-bottom:16px; }
+    label { display:block; margin-bottom:8px; font-weight:600; }
+    input[type="file"] { display:block; margin-bottom:12px; }
+    button { background:#2563eb; color:white; border:0; padding:8px 12px; border-radius:6px; cursor:pointer; }
+    button.secondary { background:#374151; }
+    pre { background:#0f172a; color:#e6eef8; padding:12px; border-radius:6px; overflow:auto; max-height:300px; }
+    .files-list { list-style:none; padding:0; margin:0; }
+    .files-list li { display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px solid #eef2f7; }
+    .small { font-size:0.9rem; color:#6b7280; }
+    .inline { display:inline-flex; gap:8px; align-items:center; }
+    input[type="text"] { padding:8px; border-radius:6px; border:1px solid #e5e7eb; width:320px; }
+  </style>
+</head>
+<body>
+  <h1>Cliente web para la API de archivos</h1>
+  <p class="small">Sube, lista y elimina archivos usando tu API Express (POST /upload, GET /files, DELETE /delete/:filename).</p>
+
+  <div class="card" id="uploadCard">
+    <label for="files">Seleccionar archivos (campo <code>files</code>):</label>
+    <input id="files" type="file" multiple />
+    <div class="inline">
+      <button id="uploadBtn">Subir archivos</button>
+      <button id="clearResp" class="secondary">Limpiar respuesta</button>
+      <button id="listBtn" class="secondary">Listar archivos</button>
+    </div>
+    <p class="small">Extensiones permitidas: .jpg, .jpeg, .png, .gif, .pdf, .txt — Tamaño máximo: 5 MB por archivo.</p>
+  </div>
+
+  <div class="card">
+    <label>Listados de archivos en <code>/uploads</code>:</label>
+    <ul id="filesList" class="files-list"><li class="small">No cargado todavía.</li></ul>
+  </div>
+
+  <div class="card">
+    <label>Eliminar archivo por nombre:</label>
+    <div class="inline">
+      <input id="deleteName" type="text" placeholder="nombre-archivo.ext (ej: foto-1234.png)" />
+      <button id="deleteBtn">Eliminar</button>
+    </div>
+    <p class="small">También puedes usar los botones de eliminar en el listado de archivos.</p>
+  </div>
+
+  <div class="card">
+    <label>Respuesta del servidor:</label>
+    <pre id="response">—</pre>
+  </div>
+
+<script>
+const apiBase = ''; // si el servidor corre en el mismo host y puerto, dejar vacío. Ej: 'http://localhost:3000'
+
+function showResponse(obj) {
+  const pre = document.getElementById('response');
+  pre.textContent = typeof obj === 'string' ? obj : JSON.stringify(obj, null, 2);
+}
+
+async function uploadFiles() {
+  const input = document.getElementById('files');
+  if (!input.files || input.files.length === 0) return showResponse('Selecciona al menos un archivo.');
+  const fd = new FormData();
+  // campo 'files' (array)
+  for (const f of input.files) fd.append('files', f);
+
+  try {
+    showResponse('Subiendo...');
+    const res = await fetch(apiBase + '/upload', {
+      method: 'POST',
+      body: fd
+    });
+    const data = await res.json();
+    showResponse({ status: res.status, body: data });
+    if (res.ok) listFiles();
+  } catch (err) {
+    showResponse({ error: err.message });
+  }
+}
+
+async function listFiles() {
+  try {
+    const res = await fetch(apiBase + '/files');
+    const data = await res.json();
+    const ul = document.getElementById('filesList');
+    ul.innerHTML = '';
+    if (!Array.isArray(data) || data.length === 0) {
+      ul.innerHTML = '<li class="small">No hay archivos.</li>';
+      return showResponse({ status: res.status, body: data });
+    }
+    data.forEach(name => {
+      const li = document.createElement('li');
+      const left = document.createElement('div');
+      left.innerHTML = '<strong>' + name + '</strong><div class="small">' + name + '</div>';
+      const btns = document.createElement('div');
+      btns.className = 'inline';
+      const dl = document.createElement('button');
+      dl.textContent = 'Eliminar';
+      dl.onclick = () => deleteFile(name);
+      const view = document.createElement('a');
+      view.textContent = 'Ver';
+      view.href = apiBase + '/uploads/' + encodeURIComponent(name);
+      view.target = '_blank';
+      view.style.marginLeft = '8px';
+      btns.appendChild(dl);
+      btns.appendChild(view);
+      li.appendChild(left);
+      li.appendChild(btns);
+      ul.appendChild(li);
+    });
+    showResponse({ status: res.status, body: data });
+  } catch (err) {
+    showResponse({ error: err.message });
+  }
+}
+
+async function deleteFile(name) {
+  if (!name) return showResponse('Nombre de archivo vacío.');
+  if (!confirm('Eliminar ' + name + ' ?')) return;
+  try {
+    const res = await fetch(apiBase + '/delete/' + encodeURIComponent(name), { method: 'DELETE' });
+    const data = await res.json();
+    showResponse({ status: res.status, body: data });
+    if (res.ok) listFiles();
+  } catch (err) {
+    showResponse({ error: err.message });
+  }
+}
+
+document.getElementById('uploadBtn').addEventListener('click', uploadFiles);
+document.getElementById('listBtn').addEventListener('click', listFiles);
+document.getElementById('clearResp').addEventListener('click', () => showResponse('—'));
+document.getElementById('deleteBtn').addEventListener('click', () => {
+  const name = document.getElementById('deleteName').value.trim();
+  deleteFile(name);
+});
+
+// Auto-list on load
+window.addEventListener('load', () => {
+  listFiles();
+});
+</script>
+</body>
+</html>

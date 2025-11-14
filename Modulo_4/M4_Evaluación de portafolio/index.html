@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoShop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+<body>
+     <!-- Navegación -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-0">
+         <div class="container">
+             <a class="navbar-brand" href="#">
+                 <i class="bi bi-shop me-2"></i>TodoShop - Gestión Avanzada de Productos
+             </a>
+             <div class="d-flex align-items-center">
+                 <!-- Carro de compras -->
+                 <button class="btn btn-outline-primary position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+                     <i class="fas fa-shopping-cart"></i>Ver Carro
+                     <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0
+                    </span>
+                 </button>
+             </div>
+         </div>
+     </nav>
+
+     <!-- Carrusel Hero -->
+     <div id="heroCarousel" class="carousel slide hero-carousel mb-4" data-bs-ride="carousel">
+         <div class="carousel-indicators">
+             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
+         </div>
+         <div class="carousel-inner">
+             <div class="carousel-item active">
+                 <img src="./assets/img/todoshop2.PNG" class="d-block w-100" alt="TodoShop">
+             </div>
+             <div class="carousel-item">
+                 <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="Productos">
+                 <div class="carousel-caption d-none d-md-block">
+                     <h5>Bienvenido a TodoShop</h5>
+                     <p>Descubre los mejores productos con la mejor calidad y precios increíbles.</p>
+                 </div>
+             </div>
+             <div class="carousel-item">
+                 <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="Productos">
+                 <div class="carousel-caption d-none d-md-block">
+                     <h5>Productos de Alta Calidad</h5>
+                     <p>Encuentra exactamente lo que buscas en nuestra amplia selección.</p>
+                 </div>
+             </div>
+             <div class="carousel-item">
+                 <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="Ofertas">
+                 <div class="carousel-caption d-none d-md-block">
+                     <h5>Ofertas Especiales</h5>
+                     <p>No te pierdas nuestras promociones y descuentos exclusivos.</p>
+                 </div>
+             </div>
+         </div>
+         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+             <span class="carousel-control-prev-icon"></span>
+             <span class="visually-hidden">Anterior</span>
+         </button>
+         <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+             <span class="carousel-control-next-icon"></span>
+             <span class="visually-hidden">Siguiente</span>
+         </button>
+     </div>
+
+     <!-- Contenido Principal -->
+     <div class="container">
+         <!-- Sección de Categorías -->
+         <div class="categories-section">
+             <div class="row align-items-center">
+                 <div class="col-md-4">
+                     <label class="form-label"><i class="fas fa-tags me-2"></i>Categorías</label>
+                     <select id="categoryFilter" class="form-select me-3" style="width: auto;">
+                         <option value="">Todas las categorías</option>
+                     </select>
+                 </div>
+
+                 <div class="col-md-4">
+                     <label class="form-label"><i class="fas fa-sort me-1"></i>Ordenar por precio:</label>
+                     <select id="priceSort" class="form-select">
+                         <option value="">Sin ordenar</option>
+                         <option value="asc">Precio: Menor a Mayor</option>
+                         <option value="desc">Precio: Mayor a Menor</option>
+                     </select>
+                 </div>
+                    
+                 <div class="col-md-4">
+                     <label class="form-label"><i class="fas fa-list-ol me-1"></i>Cantidad a mostrar:</label>
+                     <select id="limitFilter" class="form-select">
+                         <option value="0">Todos los productos</option>
+                         <option value="5">5 productos</option>
+                         <option value="10">10 productos</option>
+                         <option value="15">15 productos</option>
+                         <option value="25">25 productos</option>
+                         <option value="35">35 productos</option>
+                         <option value="50">50 productos</option>
+                     </select>
+                 </div>
+             </div>
+         </div>
+
+         <!-- Cargando Productos -->
+         <div id="loadingSpinner" class="loading-spinner text-center py-5">
+             <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                 <span class="visually-hidden">Cargando productos...</span>
+             </div>
+             <p class="mt-3 h5">Cargando productos increíbles...</p>
+         </div>
+
+         <!-- Mensajes de Alerta de Error -->
+         <div id="errorAlert" class="alert alert-danger d-none fade-in" role="alert">
+             <div class="d-flex align-items-center">
+                 <i class="fas fa-exclamation-triangle fa-2x me-3"></i>
+                 <div>
+                     <h4 class="alert-heading mb-2">Algo salió mal</h4>
+                     <p class="mb-2">Error al cargar los productos. Por favor, intente nuevamente.</p>
+                     <button class="btn btn-danger btn-modern" onclick="cargarProductos()">
+                         <i class="fas fa-redo me-2"></i>Reintentar
+                     </button>
+                 </div>
+             </div>
+         </div>
+
+         <!-- Catálogo de Productos -->
+         <div id="productosContainer" class="row">
+             <!-- Los productos se cargarán aquí dinámicamente -->
+         </div>
+     </div>
+
+     <!-- Modal del Carro -->
+     <div class="modal fade" id="cartModal" tabindex="-1">
+         <div class="modal-dialog modal-xl">
+             <div class="modal-content">
+                 <div class="modal-header bg-primary text-white">
+                     <h5 class="modal-title">
+                         <i class="fas fa-shopping-cart me-2"></i>Detalle Carro de Compras
+                     </h5>
+                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                 </div>
+                 <div class="modal-body" style="max-height: 60vh; overflow-y: auto;">
+                     <div id="cartItems">
+                         <div class="text-center py-5">
+                             <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                             <p class="text-muted h5">Tu carro está vacío</p>
+                             <p class="text-muted">¡Agrega algunos productos increíbles!</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="modal-footer">
+                     <div class="d-flex justify-content-between align-items-center w-100">
+                         <div>
+                             <h4 class="mb-0">Total: $<span id="cartTotal">0.00</span></h4>
+                         </div>
+                         <div>
+                             <button type="button" class="btn btn-outline-danger btn-modern me-2" onclick="limpiarCarrito()">
+                                 <i class="fas fa-trash me-2"></i>Limpiar Carro
+                             </button>
+                             <button type="button" class="btn btn-success btn-modern" onclick="procesarCompra()">
+                                 <i class="fas fa-credit-card me-2"></i>Procesar Compra
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- Modal Detalle Producto -->
+     <div class="modal fade" id="productDetailModal" tabindex="-1">
+         <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+                 <div class="modal-header bg-info text-white">
+                     <h5 class="modal-title" id="productDetailTitle"></h5>
+                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                 </div>
+                 <div class="modal-body row">
+                     <div class="col-md-6">
+                         <img id="productDetailImage" src="" alt="" class="img-fluid rounded">
+                     </div>
+                     <div class="col-md-6">
+                         <span class="badge bg-secondary mb-2" id="productDetailCategory"></span>
+                         <p id="productDetailDescription" class="text-justify"></p>
+                         <h4 class="text-primary"><span class="price-tag" id="productDetailPrice">$</span></h4>
+
+                         <!-- Control de cantidad -->
+                         <div class="d-flex align-items-center my-3">
+                             <button class="btn btn-outline-secondary" onclick="cambiarCantidad(-1)">-</button>
+                             <input type="number" id="productQuantity" value="1" min="1" class="form-control text-center mx-2" style="width:80px">
+                             <button class="btn btn-outline-secondary" onclick="cambiarCantidad(1)">+</button>
+                         </div>
+
+                         <!-- Botón agregar -->
+                        <button id="addToCartBtn" class="btn btn-primary w-100">
+                             <i class="fas fa-cart-plus me-2"></i>Agregar al Carro
+                        </button>
+                     </div>
+                 </div>|
+             </div>
+         </div>
+     </div>
+
+     <!-- Modal Agregar/Editar Producto -->
+     <div class="modal fade" id="adminProductModal" tabindex="-1">
+         <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+                 <div class="modal-header bg-warning text-dark">
+                     <h5 class="modal-title" id="adminProductModalTitle">Agregar Producto</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                 </div>
+                 <div class="modal-body">
+                     <form id="adminProductForm">
+                         <input type="hidden" id="adminProductId">
+                         <div class="mb-3">
+                             <label class="form-label">Nombre del producto</label>
+                             <input type="text" id="adminProductName" class="form-control" required>
+                         </div>
+                         <div class="mb-3">
+                             <label class="form-label">Categoría</label>
+                             <input type="text" id="adminProductCategory" class="form-control" required>
+                         </div>
+                         <div class="mb-3">
+                             <label class="form-label">Descripción</label>
+                             <textarea id="adminProductDescription" class="form-control" rows="3" required></textarea>
+                         </div>
+                         <div class="mb-3">
+                             <label class="form-label">Precio</label>
+                             <input type="number" id="adminProductPrice" class="form-control" required min="0">
+                         </div>
+                         <div class="mb-3">
+                             <label class="form-label">URL de Imagen</label>
+                             <input type="text" id="adminProductImage" class="form-control" required>
+                         </div>
+                     </form>
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                     <button type="button" class="btn btn-warning" id="saveAdminProductBtn">Guardar</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- Toast para notificaciones -->
+     <div class="toast-container position-fixed bottom-0 end-0 p-3">
+         <div id="notificationToast" class="toast" role="alert">
+             <div class="toast-header">
+                 <i class="fas fa-check-circle text-success me-2"></i>
+                 <strong class="me-auto">Notificación</strong>
+                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+             </div>
+             <div class="toast-body">
+                 <!-- Mensaje dinámico aquí -->
+             </div>
+         </div>
+     </div>
+
+     <!-- Footer -->
+     <footer class="bg-dark text-white py-3 mt-5">
+         <div class="container">
+             <div class="row">
+                 <div class="col-md-5">
+                     <h6>TodoShop</h6>
+                     <p><i class="bi bi-telephone"></i> (+56) 9 1234-5678 | <i class="bi bi-envelope"></i> contacto@todoshop.com</p>
+                 </div>
+                 <div class="col-md-5 text-md-end">
+                     <h6>Síguenos</h6>
+                     <div class="social-links">
+                         <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                         <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                         <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                         <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                     </div>
+                 </div>
+                 <div class="col-md-2 text-md-end">
+                     <div class="container my-2 text-end">
+                         <button class="btn btn-warning" onclick="AdministrarProductos()">
+                             <i class="fas fa-plus me-2"></i>Administración
+                         </button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </footer>
+
+     <!-- Scripts -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <script src="./assets/js/Script.js"></script>
+
+     
+</body>
+</html>

@@ -1,0 +1,11 @@
+body {
+    background-image: url('../images/noise.png');
+}
+
+@media (max-width: 575.98px) {
+    /* Estilos para pantallas extra pequeñas */
+    .rounded-start {
+        border-bottom-left-radius: 0 !important;
+        border-top-left-radius: 0 !important;
+    }
+}

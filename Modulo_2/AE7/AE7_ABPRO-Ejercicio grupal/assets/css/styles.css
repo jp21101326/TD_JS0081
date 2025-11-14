@@ -1,0 +1,43 @@
+
+        .card-servicio {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .card-servicio:hover {
+            border-color: #007bff;
+            box-shadow: 0 4px 8px rgba(0,123,255,0.2);
+        }
+        /*
+        .service-icon {
+            font-size: 60px;
+            color: #007bff;
+            margin-bottom: 15px;
+        }*/
+        .precio {
+            font-weight: bold;
+            color: #0d10a8;
+            font-size: 18px;
+        }
+        /*
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }*/
+        .seccion-Pago {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+        }
+   

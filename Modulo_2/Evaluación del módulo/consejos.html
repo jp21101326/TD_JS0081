@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CiberSeguridad</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css"/>
+</head>
+
+<body>
+
+		<!-- Navegación -->
+		 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div class="container">
+				<a class="navbar-brand fw-bold" href="index.html">CiberSeguridad
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="amanazas.html">Amenazas</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="consejos.html">Consejos</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		 </nav>
+
+         <!-- Página de Consejos de Seguridad -->
+         <section id="consejos" class="intro-section py-5">
+            <div class="container">
+                <div class="row mb-3 bg-success text-white p-2 rounded">
+                    <div class="col-12 text-left">
+                        <br>
+                        <h6 class="display-6 fw-bold mb-3">Consejos de Seguridad</h6>
+                    </div>
+                </div>
+
+                <!-- Consejos de Seguridad -->
+                <div class="row mb-5">
+                    <div class="col-lg-12">
+                        <br>
+                        <h3 class="mb-4">Buenas prácticas para protegerse en línea.</h3>
+                       
+                        <div class="security-tip">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-key-fill text-success me-3" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h5>Usa Contraseñas Seguras</h5>
+                                    <p class="mb-0">Crea contraseñas únicas de al menos 12 caracteres que combinen letras, números y símbolos. Usa un gestor de contraseñas para mantenerlas seguras.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-tip">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-shield-lock-fill text-primary me-3" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h5>Activa la Autenticación de Dos Factores</h5>
+                                    <p class="mb-0">Utiliza una capa extra de seguridad a tus cuentas importantes. Usa aplicaciones como Google Authenticator o SMS como segunda verificación.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-tip">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-arrow-clockwise text-info me-3" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h5>Mantén el Software Actualizado</h5>
+                                    <p class="mb-0">Instala actualizaciones de seguridad tan pronto como estén disponibles. Activa las actualizaciones automáticas cuando sea posible.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-tip">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-wifi text-warning me-3" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h5>Cuidado con las Redes WiFi Públicas</h5>
+                                    <p class="mb-0">Evita realizar transacciones sensibles en redes públicas. Si es necesario, usa una VPN para cifrar tu conexión.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-tip">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-cloud-arrow-up text-success me-3" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h5>Realiza Copias de Seguridad Regulares</h5>
+                                    <p class="mb-0">Guarda copias de tus archivos importantes en múltiples ubicaciones. Usa la regla 3-2-1: 3 copias, 2 medios diferentes, 1 fuera del sitio.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-tip">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-envelope-check text-danger me-3" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h5>Verifica la Legitimidad de los Correos</h5>
+                                    <p class="mb-0">Desconfía de correos que soliciten información personal o acciones urgentes. Verifica siempre la fuente antes de hacer clic en enlaces.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Contacto -->
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="mb-4">Formulario de contacto para solicitar más información</h3>
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <form id="contactForm" novalidate>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="nombre" class="form-label">Nombre Completo *</label>
+                                            <input type="text" class="form-control" id="nombre" required>
+                                            <div class="invalid-feedback">
+                                                Por favor ingresa tu nombre completo.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="email" class="form-label">Correo Electrónico *</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                            <div class="invalid-feedback">
+                                                Por favor ingresa un correo electrónico válido.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                             <label for="empresa" class="form-label">Empresa/Organización</label>
+                                             <input type="text" class="form-control" id="empresa">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                             <label for="tema" class="form-label">Tema de Interés</label>
+                                             <select class="form-select" id="tema" required>
+                                                 <option value="">Selecciona un tema</option>
+                                                 <option value="phishing">Protección contra Phishing</option>
+                                                 <option value="ransomware">Prevención de Ransomware</option>
+                                                 <option value="malware">Detección de Malware</option>
+                                                 <option value="ddos">Mitigación de DDoS</option>
+                                                 <option value="general">Consulta General</option>
+                                             </select>
+                                             <div class="invalid-feedback">
+                                                Por favor selecciona un tema de interés.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="mensaje" class="form-label">Mensaje *</label>
+                                        <textarea class="form-control" id="mensaje" rows="5" required placeholder="Describe tu consulta o cuéntanos cómo podemos ayudarte..."></textarea>
+                                        <div class="invalid-feedback">
+                                            Por favor ingresa tu mensaje.
+                                        </div>
+                                    </div>
+
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button type="reset"  class="btn btn-secondary">Limpiar</button>
+                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Test de Seguridad -->
+                <div class="row">
+                    <div class="col-12">
+                        <br>
+                        <div class="card shadow">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">
+                                    <i class="bi bi-question-circle me-2"></i>Test de Seguridad
+                                </h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <p>¿Qué tan seguro estás en línea? Responde nuestro quiz rápido para descubrirlo.</p>
+                                <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#quizModal">
+                                    <i class="bi bi-play-circle me-2"></i>Iniciar Test
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+		<!-- Modal del Quiz -->
+		<div class="modal fade" id="quizModal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header bg-success text-white">
+						<h5 class="modal-title">Test de Seguridad Cibernética</h5>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div id="quizProgress" class="mb-4">
+							<div class="d-flex justify-content-between mb-2">
+								<span>Pregunta <span id="currentQuestion">1</span> de <span id="totalQuestions">5</span></span>
+								<span id="score">Puntuación: 0</span>
+							</div>
+							<div class="progress">
+								<div class="progress-bar" id="progressBar" style="width: 20%"></div>
+							</div>
+						</div>
+
+						<div id="quizContainer">
+							<!-- Las preguntas se cargarán dinámicamente -->
+						</div>
+
+						<div id="quizResult" style="display: none;" class="text-center">
+							<div class="mb-4">
+								<i class="bi bi-trophy display-4 text-warning"></i>
+							</div>
+							<h4 id="resultTitle"></h4>
+							<p id="resultMessage" class="lead"></p>
+							<div class="progress mb-3">
+								<div class="progress-bar" id="finalScore" style="width: 0%"></div>
+							</div>
+							<p id="scoreText"></p>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary" id="nextQuestion" onclick="nextQuestion()">
+							Siguiente <i class="bi bi-arrow-right"></i>
+						</button>
+						<button type="button" class="btn btn-success" id="startAgain" onclick="startQuiz()" style="display: none;">
+							<i class="bi bi-arrow-clockwise me-2"></i>Intentar de Nuevo
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer class="mt-3 bg-dark text-light" >
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h6>CiberSeguridad</h6>
+						<p><i class="bi bi-telephone"></i> (+56) 9 1234-5678 | <i class="bi bi-envelope"></i> contacto@ciberseguridad.cl</p>
+					</div>
+					<div class="col-md-6 text-md-end">
+						<h6>Síguenos</h6>
+						<div class="social-links">
+							<a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+							<a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+							<a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+							<a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="./assets/js/script.js"></script>
+
+</body>
+</html>

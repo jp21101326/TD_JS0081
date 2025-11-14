@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include("partials/head.ejs") %>
+<body>
+  <%- include("partials/header.ejs") %>
+
+  <main>
+      <section class="error-container">
+        <div class="error-icon">⚠️</div>
+        <h1>Página no encontrada</h1>
+        <h2 class="error-message"><%= mensaje %></h2>
+        
+        <div class="error-details">
+          <p><strong>Detalles del error:</strong></p>
+          <code><%= error %></code>
+        </div>
+
+        <div class="error-actions">
+          <a href="/" class="btn btn-primary">Volver al Inicio</a>
+          <a href="/productos" class="btn btn-secondary">Ver Productos</a>
+        </div>
+
+        <div class="error-help">
+          <h3>¿Necesitas ayuda?</h3>
+          <ul>
+            <li>Verifica que la URL sea correcta</li>
+            <li>Asegúrate de que el archivo de productos existe</li>
+            <li>Revisa la consola del servidor para más información</li>
+            <li>Si el problema persiste, contacta al administrador</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+
+  <%- include("partials/footer.ejs") %>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibroLibre</title>
+    <link rel="shortcut icon" href="assets/images/book-half.svg" type="image/x-icon">
+
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- ICONOS Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="assets/js/buscarLibros.js" defer></script>
+    <script src="assets/js/validarRegistro.js" defer></script>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="container-fluid navbar navbar-expand-lg bg-dark py-3" data-bs-theme="dark">
+        <div class="container-lg">
+            <a class="navbar-brand fw-semibold fs-1" href="#"><i class="bi bi-book-half"></i> LibroLibre</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav text-center fw-bold">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catalogo">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#registro">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Sobre Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="container-lg bg-light">
+        <!-- Busqueda -->
+        <section class="py-3">
+            <h3 class="fw-bold text-center pt-5 mb-4">Busqueda de Libros por Autor</h3> 
+            <div class="col-10 col-sm-6 mx-auto">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="busqueda" name="busqueda" placeholder="Busqueda por autor">
+                    <button class="btn btn-outline-secondary" type="button" onclick="limpiarBusqueda(true)"><i class="bi bi-arrow-counterclockwise"></i></button>    
+                </div>
+
+                <button class="btn bg-secondary-subtle w-100 fw-medium mb-3" onclick="buscarLibrosPorAutor()"><i class="bi bi-search"></i> Buscar libros</button>
+            </div>
+        </section>
+        <!-- Resultados Busqueda -->
+        <div  class="text-center my-5">
+            <img id="cargando" src="assets/images/loading.gif" alt="cargando" hidden>
+            <span id="encabezado-busqueda" class="fs-4 fst-italic" hidden></span>
+        </div>
+        <hr>
+        <section id="catalogo" class="col-9 mx-auto">
+            <!-- Cards Acá -->
+            <img src="assets/images/banner_oldbooks.jpg" alt="oldbooks" class="w-100 rounded-3">
+        </section>
+        <hr>
+        <!-- Registro -->
+        <section id="registro">
+            <h3 class="my-4 fw-bold text-center" id="registro">Registro de Usuarios</h3>
+            <form id="registro" class="col-10 col-sm-9 mx-auto">
+                <input type="text" class="form-control mb-3" id="nombre" name="nombre" placeholder="Nombre completo">
+                <input type="email" class="form-control mb-3" id="email" name="email" placeholder="Correo electrónico">
+                <input type="password" class="form-control mb-3" id="pass" name="pass" placeholder="Contraseña">
+                <button id="btn-registrarse" class="btn bg-secondary-subtle w-100 fw-medium mb-3" type="button">Registrarse</button>
+            </form>
+        </section>
+        <!-- Nosotros -->
+         <hr>
+        <section class="p-4" id="nosotros">
+            <h3 class="my-4 fw-bold text-center" id="registro">Sobre Nosotros</h3>
+            <p class="text">LibroLibre es una biblioteca digital creada por tres entusiastas de la lectura con el objetivo de facilitar el acceso a libros electrónicos y audiolibros de manera simple y eficiente.</p>
+        </section>
+        <hr>
+        <div class="py-5"></div>
+    </main>
+    <!-- Footer -->
+    <footer class="container-fluid bg-dark p-3 text-light text-center display-6 fixed-bottom">
+        <i class="bi bi-book-half"></i>
+    </footer>
+</body>
+</html>

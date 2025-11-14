@@ -1,0 +1,164 @@
+/* 🎨 Variables de color */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+}
+
+/* ==== Base ==== */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    background-color: #e9ecef;
+}
+
+/* ==== Hero ==== */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+/* ==== Cards ==== */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.32s cubic-bezier(.2,.8,.2,1), 
+                box-shadow 0.32s ease;
+}
+
+/* Hover card (imagen y contenido se mueven juntos) */
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+}
+
+/* Imagen dentro de la card */
+.card .card-img-top,
+.card .project-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: inherit; 
+}
+
+/* ==== Detalle de proyecto ==== */
+.project-detail {
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.project-detail .card-body {
+    padding: 2rem;
+}
+
+/* ==== Tech Stack Badges ==== */
+.tech-stack .badge {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+}
+
+/* ==== Navbar ==== */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #fff !important;
+}
+
+/* ==== Footer ==== */
+footer {
+    margin-top: auto;
+}
+
+.social-links a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* ==== Error 404 ==== */
+.error-404 h1 {
+    font-size: 8rem;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ==== Utilidades ==== */
+.object-cover {
+    object-fit: cover;
+    width: 100%;
+}
+
+.btn {
+    font-weight: 500;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+}
+
+.py-6 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+.bg-gradient {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+}
+
+/* ==== Animaciones ==== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 50vh;
+    }
+
+    .error-404 h1 {
+        font-size: 5rem;
+    }
+
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .project-detail .card-body {
+        padding: 1.5rem;
+    }
+}
+
+.custom-font {
+    font-family: 'Calibri Light', Calibri, 'Century Gothic', sans-serif;
+}

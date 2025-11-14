@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoFix</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">AutoFix</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#solicitar">Solicitar</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pago">Pago</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="bg-light py-3 text-center">
+  <div class="container">
+    <p class="display-6 fw-bold">AutoFix - Reparación de Vehículos a Domicilio</p>
+  </div>
+</header>
+
+<section id="servicios" class="py-5">
+  <div class="container">
+    <h2 class="mb-5">Servicios y Precios</h2>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="card-servicio">
+          <img src="./assets/img/aceite3.jpg" alt="Cambio de aceite" class="img-fluid" />
+          <h4>Cambio de aceite</h4>
+          <p class="precio">$500 MXN</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-servicio">
+          <img src="./assets/img/frenos.jpg" alt="Revisión de frenos" class="img-fluid" />
+          <h4>Revisión de frenos</h4>
+          <p class="precio">$700 MXN</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-servicio">
+          <img src="./assets/img/diagnostico.jpg" alt="Diagnóstico eléctrico" class="img-fluid" />
+          <h4>Diagnóstico eléctrico</h4>
+          <p class="precio">$600 MXN</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- solicitar reparacion -->
+<section id="solicitar" class="py-5 bg-light">
+     <div class="container">
+         <h2 class="mb-4">Solicitar Reparación</h2>
+         <div class="row justify-content-center">
+             <div class="col-lg-8">
+                 <form id="FormularioReparacion">
+                    <div class="mb-3 row">
+                        <label for="nombreCliente" class="col-sm-4 col-form-label">Nombre del Cliente</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nombreCliente" required />
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="tipoReparacion" class="col-sm-4 col-form-label">Tipo de Reparación</label>
+                        <div class="col-sm-8">
+                            <select class="form-select" id="tipoReparacion" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="cambio-aceite">Cambio de aceite - $500 MXN</option>
+                                <option value="revision-frenos">Revisión de frenos - $700 MXN</option>
+                                <option value="diagnostico-electrico">Diagnóstico eléctrico - $600 MXN</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                         <label for="descripcion" class="col-sm-4 col-form-label">Descripción</label>
+                         <div class="col-sm-8">
+                             <textarea class="form-control" id="descripcion" rows="4" placeholder="Describe el problema..."></textarea>
+                         </div>
+                    </div>
+                    <div class="mb-3 row">
+                         <label for="fechaCita" class="col-sm-4 col-form-label">Agendar Cita</label>
+                         <div class="col-sm-8">
+                             <input type="datetime-local" class="form-control" id="fechaCita" required />
+                         </div>
+                    </div>
+                    <div class="mb-3 row">
+                         <label for="direccion" class="col-sm-4 col-form-label">Dirección</label>
+                         <div class="col-sm-8">
+                             <input type="text" class="form-control" id="direccion" required />
+                         </div>
+                    </div>
+                    <div class="mb-3 row">
+                         <label for="telefono" class="col-sm-4 col-form-label">Teléfono</label>
+                         <div class="col-sm-8">
+                             <input type="tel" class="form-control" id="telefono" required />
+                         </div>
+                    </div>
+                    <div class="row">
+                         <div class="col-12">
+                             <button type="button" id="btnConfirmarReserva"  class="btn btn-primary btn-lg w-100">Confirmar Solicitud</button>
+                         </div>
+                    </div>
+                 </form>
+             </div>
+         </div>
+     </div>
+</section>
+
+<!-- Información de Pago -->
+<section id="pago" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-3">Información de Pago</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="seccion-Pago">
+                        <h4 class="mb-4"><i class="bi bi-credit-card"></i> Información de Pago (simulado)</h4>
+                        <form id="FormularioPago">
+                            <div class="mb-3">
+                                <label for="numeroTarjeta" class="form-label">Número de tarjeta</label>
+                                <input type="text" class="form-control" id="numeroTarjeta" placeholder="**** **** **** 1234" maxlength="19">
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="nombreTitular" class="form-label">Nombre del titular</label>
+                                        <input type="text" class="form-control" id="nombreTitular" placeholder="Nombre completo">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="fechaExpiracion" class="form-label">Fecha de expiración</label>
+                                        <input type="text" class="form-control" id="fechaExpiracion" placeholder="MM/AA" maxlength="5">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="cvv" class="form-label">CVV</label>
+                                <input type="text" class="form-control" id="cvv" placeholder="123" maxlength="4">
+                            </div>
+                            
+                            <div class="alert alert-info">
+                                <i class="bi bi-info-circle"></i> 
+                                <strong>Total a pagar:</strong> <span id="totalPago">$0 MXN</span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success btn-lg w-100">
+                                <i class="bi bi-lock"></i> Procesar Pago
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!-- modal confirmación -->
+<div class="modal fade" id="modalConfirmacion" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">
+                        <i class="fas fa-check-circle me-2"></i>Pago Confirmado
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-ticket-alt text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h4>Tu Pago ha sido confirmado</h4>
+                     <div id="ticketDetails" class="mt-4 p-3 bg-light rounded"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+<footer class="bg-dark text-light py-3">
+  <div class="container text-center">
+    <h5>AutoFix - Reparación de Vehículos</h5>
+    <p><i class="bi bi-telephone"></i> (+56) 9 1234-5678 | <i class="bi bi-envelope"></i> contacto@autofix.cl</p>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./assets/js/script.js"></script>
+
+</body>
+</html>
