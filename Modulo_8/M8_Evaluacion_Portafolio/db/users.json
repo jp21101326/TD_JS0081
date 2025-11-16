@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "username": "juanito",
+    "password": "$2b$10$BK45jDPiGAlFc0nn0QbxkOPmuB2vFAiKR9yMFpaazebVwuj6OqRa.",
+    "role": "user",
+    "profile": {
+      "nombre": "Juan Pérez",
+      "bio": "Desarrollador web",
+      "avatar": "/uploads/1763260834294-sql_error.JPG"
+    },
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYzMjYwNDUyLCJleHAiOjE3NjM4NjUyNTJ9.QOQsFD3weebSklssd26AtwQ6YoFDUxK0HyZQ1upG_yQ"
+  },
+  {
+    "id": 2,
+    "username": "Pedro",
+    "password": "$2b$10$YcDN83GOft.ernQqIQhQAe9C6JRYn51IEDvUkzCBf10kTnlFgc8cK",
+    "role": "user",
+    "profile": {
+      "nombre": "",
+      "bio": "",
+      "avatar": null
+    },
+    "refreshToken": null
+  },
+  {
+    "id": 3,
+    "username": "pedro",
+    "password": "$2b$10$Q3A.gFc57qS.lvcAUXFiC.veIZazuJRIRtylCE.Rrk.RdaReHxEMS",
+    "role": "user",
+    "profile": {
+      "nombre": "",
+      "bio": "",
+      "avatar": null
+    },
+    "refreshToken": null
+  }
+]
