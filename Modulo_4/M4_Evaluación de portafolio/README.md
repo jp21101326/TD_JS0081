@@ -49,7 +49,7 @@ La aplicación se construyó utilizando JavaScript moderno (ES6+), aplicando con
 
 ## Estructura Esperada del Proyecto
 
-M4_Evaluación de portafolio
+TiendaOnline
  ┣ 📂 assets
  ┃        ┣ 📂 css
  ┃        ┃ ┗ styles.css
