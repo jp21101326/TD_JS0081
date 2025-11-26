@@ -1,0 +1,33 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Biblioteca</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-3">
+  <nav class="mb-3">
+    <a class="btn btn-outline-primary" href="/libros">Libros</a>
+    {{#if user}}
+      <span class="btn btn-outline-secondary">Hola, {{user.username}}</span>
+      <a class="btn btn-outline-warning" href="/carrito">Carrito</a>
+      <a class="btn btn-outline-danger" href="/logout">Logout</a>
+      {{#if (eq user.username "admin")}}
+        <a class="btn btn-outline-info" href="/admin">Admin</a>
+      {{/if}}
+    {{else}}
+      <a class="btn btn-outline-info" href="/login">Login</a>
+      <a class="btn btn-outline-success" href="/register">Registro</a>
+      <a class="btn btn-outline-warning" href="/carrito">Carrito</a>
+    {{/if}}
+  </nav>
+
+  <div class="container">
+    {{#if messages.error}}<div class="alert alert-danger">{{messages.error.[0]}}</div>{{/if}}
+    {{#if messages.success}}<div class="alert alert-success">{{messages.success.[0]}}</div>{{/if}}
+    {{{body}}}
+  </div>
+
+</body>
+</html>

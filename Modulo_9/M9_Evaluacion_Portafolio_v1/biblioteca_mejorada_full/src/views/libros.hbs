@@ -1,0 +1,24 @@
+
+<h1>Libros</h1>
+<div class="row">
+  {{#each libros}}
+    <div class="col-md-4 mb-3">
+      <div class="card p-2">
+        <h5>{{this.nombre}}</h5>
+        <p>Precio: ${{this.precio}}</p>
+        <p>Disponibles: {{this.cantidad_disponible}}</p>
+
+        <form action="/carrito/add" method="POST" class="d-flex gap-2">
+          <input type="hidden" name="id" value="{{this.id}}" />
+          <input type="number" name="cantidad" min="1" value="1" class="form-control" style="width:100px"/>
+          <button class="btn btn-outline-primary" type="submit">Agregar al carrito</button>
+        </form>
+
+        <form action="/libros/{{this.id}}/comprar" method="POST" class="mt-2">
+          <input type="hidden" name="cantidad" value="1" />
+          <button class="btn btn-primary" type="submit">Comprar ahora</button>
+        </form>
+      </div>
+    </div>
+  {{/each}}
+</div>

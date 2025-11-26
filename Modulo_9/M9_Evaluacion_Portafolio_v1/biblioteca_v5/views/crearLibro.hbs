@@ -1,0 +1,16 @@
+<h2>Crear libro</h2>
+
+<form method="post" action="/libros/crear">
+  <div class="mb-3">
+    <label class="form-label">Nombre del libro</label>
+    <input name="nombre" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Cantidad disponible</label>
+    <input name="cantidad_disponible" type="number" min="0" class="form-control" required>
+  </div>
+
+  <button class="btn btn-primary">Crear libro</button>
+  <a href="/admin/libros" class="btn btn-secondary">Cancelar</a>
+</form>

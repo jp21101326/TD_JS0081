@@ -1,0 +1,8 @@
+
+<h1>Editar Libro</h1>
+<form action="/admin/update/{{libro.id}}" method="POST">
+  <div class="mb-2"><label>Nombre</label><input name="nombre" class="form-control" value="{{libro.nombre}}" /></div>
+  <div class="mb-2"><label>Precio</label><input name="precio" class="form-control" value="{{libro.precio}}" /></div>
+  <div class="mb-2"><label>Cantidad</label><input name="cantidad" class="form-control" value="{{libro.cantidad_disponible}}" /></div>
+  <button class="btn btn-primary">Actualizar</button>
+</form>

@@ -1,0 +1,22 @@
+
+<h1>Carrito</h1>
+{{#if cart.length}}
+  <table class="table">
+    <thead><tr><th>Libro</th><th>Cantidad</th><th>Precio</th></tr></thead>
+    <tbody>
+      {{#each cart}}
+        <tr>
+          <td>{{this.nombre}}</td>
+          <td>{{this.cantidad}}</td>
+          <td>{{this.precio}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <form action="/carrito/checkout" method="POST">
+    <button class="btn btn-success">Pagar / Checkout</button>
+  </form>
+{{else}}
+  <p>El carrito está vacío.</p>
+{{/if}}

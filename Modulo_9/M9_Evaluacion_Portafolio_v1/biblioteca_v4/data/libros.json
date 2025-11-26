@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cien Años de Soledad",
+    "autor": "Gabriel García Márquez",
+    "precio": 15000,
+    "cantidad_disponible": 9
+  },
+  {
+    "id": 2,
+    "nombre": "1984",
+    "autor": "George Orwell",
+    "precio": 12000,
+    "cantidad_disponible": 7
+  },
+  {
+    "id": 3,
+    "nombre": "El Principito",
+    "autor": "Antoine de Saint-Exupéry",
+    "precio": 8000,
+    "cantidad_disponible": 14
+  },
+  {
+    "id": 4,
+    "nombre": "Don Quijote de la Mancha",
+    "autor": "Miguel de Cervantes",
+    "precio": 18000,
+    "cantidad_disponible": 6
+  },
+  {
+    "id": 5,
+    "nombre": "Orgullo y Prejuicio",
+    "autor": "Jane Austen",
+    "precio": 13000,
+    "cantidad_disponible": 6
+  },
+  {
+    "id": 6,
+    "nombre": "El Señor de los Anillos",
+    "autor": "J.R.R. Tolkien",
+    "precio": 18000,
+    "cantidad_disponible": 8
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "titulo": "El Señor de los Anillos",
+    "autor": "J.R.R. Tolkien",
+    "año": 1954,
+    "cantidad_disponible": 10
+  }
+]
