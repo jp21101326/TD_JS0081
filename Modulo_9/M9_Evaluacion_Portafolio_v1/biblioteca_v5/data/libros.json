@@ -1,5 +1,0 @@
-[
-{ "id": "b1", "nombre": "Aprendiendo Node.js", "cantidad_disponible": 5 },
-{ "id": "b2", "nombre": "JavaScript Moderno", "cantidad_disponible": 3 },
-{ "id": "b3", "nombre": "Bases de Datos", "cantidad_disponible": 0 }
-]
